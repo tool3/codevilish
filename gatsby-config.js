@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Codewall`,
     author: `Tal Hayut`,
-    description: `A blog.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `The codewall blog.`,
+    siteUrl: `https://codewall.netlify.com`,
     social: {
       gitlab: `talhayut`
     },
@@ -57,13 +57,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Coder Wall`,
+        short_name: `codewall`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
+        theme_color: `#1e1e1e`,
         icon: `content/assets/gatsby-icon.png`,
+        display: `standalone`,
       },
     },
     `gatsby-plugin-offline`,
