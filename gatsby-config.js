@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `CodeX`,
     author: `Tal Hayut`,
-    description: `The codewall blog.`,
-    siteUrl: `https://codewall.netlify.com`,
+    description: `The codex blog.`,
+    siteUrl: `https://codex.netlify.com`,
     social: {
       gitlab: `talhayut`
     },
