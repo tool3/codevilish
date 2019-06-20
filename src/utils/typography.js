@@ -1,18 +1,16 @@
-import Typography from "typography"
-import Wordpress2016 from "typography-theme-wordpress-2016"
+import Typography from "typography";
+import USWebDesign from "typography-theme-us-web-design-standards";
 
-Wordpress2016.overrideThemeStyles = () => {
+USWebDesign.overrideThemeStyles = () => {
   return {
-    "a.gatsby-resp-image-link": {
-      boxShadow: `none`,
+    "h1": {
+      fontSize: '25px',
+      fontWeight: 'bold'
     },
   }
 }
 
-delete Wordpress2016.googleFonts
-
-const typography = new Typography(Wordpress2016)
-
+const typography = new Typography(USWebDesign);
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {
   typography.injectStyles()
