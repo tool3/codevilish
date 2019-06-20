@@ -23,46 +23,40 @@ const Bio = () => {
       }
       site {
         siteMetadata {
-          author
+          author,
           social {
-            twitter
+            gitlab
           }
         }
       }
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
-  return (
-    <div
+  const { author, social } = data.site.siteMetadata;
+  console.log(data);
+  return (<div
+    style={{
+      display: `flex`, marginBottom: rhythm(2.5),
+    }}
+  >
+    <Image
+      fixed={data.avatar.childImageSharp.fixed}
+      alt={author}
       style={{
-        display: `flex`,
-        marginBottom: rhythm(2.5),
+        marginRight: rhythm(1 / 2), marginBottom: 0, minWidth: 50, borderRadius: `100%`,
       }}
-    >
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author}
-        style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
-        }}
-        imgStyle={{
-          borderRadius: `50%`,
-        }}
-      />
-      <p>
-        Written by <strong>{author}</strong> who lives and works in San
-        Francisco building useful things.
-        {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
-        </a>
-      </p>
-    </div>
-  )
+      imgStyle={{
+        borderRadius: `50%`,
+      }}
+    />
+    <p>
+      <strong>{author}</strong>
+      <br/>
+      <a href={`https://gitlab.com/${social.gitlab}`}>
+        gitlab
+      </a>
+    </p>
+  </div>)
 }
 
 export default Bio
