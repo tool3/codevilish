@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Codewall`,
+    title: `CodeX`,
     author: `Tal Hayut`,
     description: `The codewall blog.`,
     siteUrl: `https://codewall.netlify.com`,
@@ -57,8 +57,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Coder Wall`,
-        short_name: `codewall`,
+        name: `Code X`,
+        short_name: `CodeX`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#1e1e1e`,
