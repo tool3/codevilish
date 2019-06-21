@@ -33,7 +33,6 @@ const Bio = () => {
   `)
 
   const { author, social } = data.site.siteMetadata;
-  console.log(data);
   return (<div
     style={{
       display: `flex`, marginBottom: rhythm(2.5),
