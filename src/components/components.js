@@ -21,10 +21,26 @@ export const StyledLink = styled(props => <Link {...props} />)`
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: space-between; 
   align-items: center;
   background-color: ${backgroundColor};
   color: ${color};
-  height: 100%;
   min-height: 100vh;
   `
+
+export const Tag = styled.div`
+      background-color: hotpink;
+      color: ghostwhite;
+      border-radius: 13px;
+      padding: 5px;
+      text-align: center;
+      font-size: 15px;
+      line-height: 12px;
+      margin: 5px;
+    `
+
+export const TagWrapper = styled.div`
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: row;
+    `

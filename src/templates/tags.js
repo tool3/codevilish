@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link, graphql } from "gatsby"
+import Header from "../components/header"
+import { Wrapper } from "../components/components"
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
@@ -10,8 +12,8 @@ const Tags = ({ pageContext, data }) => {
     } tagged with "${tag}"`
 
   return (
-    <div>
-      <h1>{tagHeader}</h1>
+    <Wrapper>
+      <Header title={tagHeader} />
       <ul>
         {edges.map(({ node }) => {
           const { slug } = node.fields
@@ -28,7 +30,7 @@ const Tags = ({ pageContext, data }) => {
               We'll come back to it!
             */}
       <Link to="/tags">All tags</Link>
-    </div>
+    </Wrapper>
   )
 }
 

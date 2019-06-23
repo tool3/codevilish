@@ -32,6 +32,7 @@ const Bio = ({center}) => {
     display: flex;
     justify-content: flex-start;
     margin-top: 5px;
+    width: auto;
   `
   const P = styled.p`
     margin-left: 5px;

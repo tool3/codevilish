@@ -1,21 +1,21 @@
 import React from "react"
-import { rhythm, scale } from "../utils/typography"
-import { A, StyledLink, Wrapper } from "./components"
-import { ThemeProvider } from "styled-components"
-import styled from "styled-components"
-import { FaAdjust} from "react-icons/fa"
+import { Wrapper } from "./components"
+import styled, { ThemeProvider } from "styled-components"
+import { FaAdjust } from "react-icons/fa"
+import Bio from "./bio"
+import Header from "./header"
 
 const Footer = styled.footer`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 200px;
-`
-const BuiltWith = styled(A)`
-&& {
-  font-size: 15px;
-}
+  padding: 5px 10em;
+  background-color: #ECF0F1; 
+  width: 100%; 
+  height: 10rem;
+     @media only screen and (max-width: 600px) {
+       padding: 5px 2em;
 `
 
 const Adjust = styled(FaAdjust)`
@@ -24,34 +24,15 @@ const Adjust = styled(FaAdjust)`
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    let header
+    const { children } = this.props
 
-    if (location.pathname === rootPath) {
-      header = (<h1 style={{ ...scale(1.5), marginBottom: rhythm(1.5), marginTop: 0 }}>
-        <StyledLink to={`/`}>{title}</StyledLink>
-      </h1>)
-    } else {
-      header = (<h3>
-        <StyledLink to={`/`}>{title}</StyledLink>
-      </h3>
-
-      )
-    }
     return (<ThemeProvider theme={{ mode: this.props.mode }}>
       <Wrapper>
-        <header>{header}</header>
+        <Header toggleLight={this.props.toggleLight} title={this.props.title}/>
         <main>{children}</main>
-
-        <Adjust onClick={this.props.toggleTheme} />
-
         <Footer>
-          Tal Hayut © {new Date().getFullYear()}
-          <br/>
-          <BuiltWith href="https://www.gatsbyjs.org">built with Gatsby</BuiltWith>
+          <Bio/>
         </Footer>
-
       </Wrapper>
     </ThemeProvider>)
   }

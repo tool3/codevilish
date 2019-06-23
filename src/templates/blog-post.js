@@ -1,33 +1,16 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 import styled from "styled-components"
 import { backgroundColor, color } from "../components/styles"
-import { StyledLink, Wrapper } from "../components/components"
+import { StyledLink, Tag, TagWrapper, Wrapper } from "../components/components"
 import { FaClock } from "react-icons/fa"
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const Tag = styled.div`
-      background-color: ${backgroundColor};
-      color: ${color};
-      border: 1px solid ${color};
-      border-radius: 13px;
-      padding: 5px;
-      text-align: center;
-      font-size: 15px;
-      line-height: 12px;
-      margin: 5px;
-    `
 
-    const TagWrapper = styled.div`
-      display: flex;
-      justify-content: flex-start;
-      flex-direction: row;
-    `
 
     const H1 = styled.h1`
       background-color: ${backgroundColor};
@@ -47,15 +30,18 @@ class BlogPostTemplate extends React.Component {
 
     const UL = styled.ul`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     list-style: none;
     padding: 0;
+    margin: 0;
     `
 
     const Content = styled.div`
-       padding: 5px 25rem;
-       @media (max-width: 768px) {
-         padding: 5px 3rem; 
+       padding: 5px 20em;
+ 
+       @media only screen and (max-width: 600px) {
+       padding: 5px 2em;
+      
       }
     `
     const Footer = styled.div`
@@ -63,6 +49,9 @@ class BlogPostTemplate extends React.Component {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    width: 100vw; 
+    @media only screen and (max-width: 600px) {
+    padding: 5px 2em;
     `
 
     const Clock = styled(FaClock)`
@@ -73,11 +62,10 @@ class BlogPostTemplate extends React.Component {
     const { previous, next } = this.props.pageContext
     const siteTitle = this.props.data.site.siteMetadata.title
     const { frontmatter: { title, date, description, tags }, excerpt, html } = this.props.data.markdownRemark
-    return (<Wrapper>
-      <Layout location={this.props.location} title={siteTitle} mode={"light"}>
+    return (<Layout location={this.props.location} title={siteTitle} mode={"light"}>
         <SEO title={title} description={description || excerpt}/>
         <H1>{title}</H1>
-        <Div>{date} <Clock /></Div>
+        <Div>{date} <Clock/></Div>
 
         <Content dangerouslySetInnerHTML={{ __html: html }}/>
 
@@ -87,7 +75,6 @@ class BlogPostTemplate extends React.Component {
           {tags && <TagWrapper>{tags.map((tag, index) => (
             <StyledLink key={index} to={`/tags/${tag}`}>
               <Tag>{tag}</Tag></StyledLink>))}</TagWrapper>}
-          <Bio/>
         </Footer>
 
         <UL>
@@ -101,8 +88,7 @@ class BlogPostTemplate extends React.Component {
             </StyledLink>)}
           </li>
         </UL>
-      </Layout>
-    </Wrapper>)
+      </Layout>)
   }
 }
 

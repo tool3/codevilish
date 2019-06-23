@@ -3,21 +3,31 @@ import PropTypes from "prop-types"
 import kebabCase from "lodash/kebabCase"
 import { Helmet } from "react-helmet"
 import { Link, graphql } from "gatsby"
+import Header from "../components/header"
+import { Tag, Wrapper } from "../components/components"
+import styled from "styled-components"
+
+const TagLink = styled(Link)`
+  color: white;
+  &:visited {
+    color: white;
+  }
+`
 
 const TagsPage = ({ data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } } }) => {
-  return (<div>
+  return (<Wrapper>
     <Helmet title={title}/>
     <div>
-      <h1>Tags</h1>
+      <Header title={"Tags"}/>
       <ul>
-        {group.map(tag => (<li key={tag.fieldValue}>
-          <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+        {group.map(tag => (<Tag key={tag.fieldValue}>
+          <TagLink to={`/tags/${kebabCase(tag.fieldValue)}/`}>
             {tag.fieldValue} ({tag.totalCount})
-          </Link>
-        </li>))}
+          </TagLink>
+        </Tag>))}
       </ul>
     </div>
-  </div>)
+  </Wrapper>)
 }
 
 TagsPage.propTypes = {

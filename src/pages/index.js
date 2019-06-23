@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
@@ -58,11 +57,9 @@ class BlogIndex extends React.Component {
     `
 
 
-    return (<ThemeProvider theme={{ mode: "light" }}>
-        <Layout location={this.props.location} title={siteTitle} toggleTheme={this.toggleLight} mode={this.state.mode}>
-
+    return (<ThemeProvider theme={{ mode: this.state.mode }}>
+        <Layout location={this.props.location} toggleLight={this.toggleLight} title={siteTitle} mode={this.state.mode}>
           <SEO title="All posts"/>
-          <Bio/>
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (<Div key={node.fields.slug}>
