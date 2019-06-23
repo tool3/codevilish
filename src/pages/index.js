@@ -55,7 +55,6 @@ class BlogIndex extends React.Component {
       color: ${color};
       font-size: 13px;
       line-height: 25px;
-      font-family: 'Georgia', sans-serif;
     `
 
 

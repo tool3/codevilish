@@ -7,6 +7,7 @@ import { rhythm } from "../utils/typography"
 import styled from "styled-components"
 import { backgroundColor, color } from "../components/styles"
 import { StyledLink, Wrapper } from "../components/components"
+import { FaClock } from "react-icons/fa"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -31,7 +32,6 @@ class BlogPostTemplate extends React.Component {
     const H1 = styled.h1`
       background-color: ${backgroundColor};
       color: ${color};
-      font-family: 'Georgia', sans-serif;      
       font-size: 2.5rem;
       text-align: center;
     `
@@ -53,14 +53,21 @@ class BlogPostTemplate extends React.Component {
     `
 
     const Content = styled.div`
-       padding: 5px 480px;
+       padding: 5px 25rem;
+       @media (max-width: 768px) {
+         padding: 5px 3rem; 
+      }
     `
-
     const Footer = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    `
+
+    const Clock = styled(FaClock)`
+    width: 15px;
+    height: 15px;
     `
 
     const { previous, next } = this.props.pageContext
@@ -70,15 +77,16 @@ class BlogPostTemplate extends React.Component {
       <Layout location={this.props.location} title={siteTitle} mode={"light"}>
         <SEO title={title} description={description || excerpt}/>
         <H1>{title}</H1>
-        <Div>{date}</Div>
+        <Div>{date} <Clock /></Div>
 
         <Content dangerouslySetInnerHTML={{ __html: html }}/>
 
         <hr style={{ marginBottom: rhythm(1) }}/>
 
         <Footer>
-          {tags &&
-          <TagWrapper>{tags.map((tag, index) => <StyledLink to={`/tags/${tag}`}><Tag key={index}>{tag}</Tag></StyledLink>)}</TagWrapper>}
+          {tags && <TagWrapper>{tags.map((tag, index) => (
+            <StyledLink key={index} to={`/tags/${tag}`}>
+              <Tag>{tag}</Tag></StyledLink>))}</TagWrapper>}
           <Bio/>
         </Footer>
 
