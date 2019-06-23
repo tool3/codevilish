@@ -22,7 +22,6 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between; 
-  align-items: center;
   background-color: ${backgroundColor};
   color: ${color};
   min-height: 100vh;
@@ -44,3 +43,20 @@ export const TagWrapper = styled.div`
       justify-content: flex-start;
       flex-direction: row;
     `
+
+
+export const TagLink = styled(Link)`
+  color: white;
+  padding: 2px;
+  text-decoration: none;
+  &:visited {
+    color: white;
+  }
+`
+
+export const TagPage = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column; 
+`

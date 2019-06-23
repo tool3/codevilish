@@ -1,7 +1,6 @@
 import React from "react"
 import { Wrapper } from "./components"
 import styled, { ThemeProvider } from "styled-components"
-import { FaAdjust } from "react-icons/fa"
 import Bio from "./bio"
 import Header from "./header"
 
@@ -18,10 +17,6 @@ const Footer = styled.footer`
        padding: 5px 2em;
 `
 
-const Adjust = styled(FaAdjust)`
-  cursor: pointer;
-`
-
 class Layout extends React.Component {
   render() {
     const { children } = this.props
@@ -29,7 +24,7 @@ class Layout extends React.Component {
     return (<ThemeProvider theme={{ mode: this.props.mode }}>
       <Wrapper>
         <Header toggleLight={this.props.toggleLight} title={this.props.title}/>
-        <main>{children}</main>
+        <div>{children}</div>
         <Footer>
           <Bio/>
         </Footer>

@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 import styled from "styled-components"
 import { backgroundColor, color } from "../components/styles"
-import { StyledLink, Tag, TagWrapper, Wrapper } from "../components/components"
+import { StyledLink, Tag, TagWrapper } from "../components/components"
 import { FaClock } from "react-icons/fa"
 
 class BlogPostTemplate extends React.Component {
@@ -17,15 +17,17 @@ class BlogPostTemplate extends React.Component {
       color: ${color};
       font-size: 2.5rem;
       text-align: center;
+      margin: 0;
     `
     const Div = styled.div`
       background-color: ${backgroundColor};
       color: ${color};
-      text-align: center;
       font-size: 20px;
       line-height: 12px;
       margin: 5px;
-      padding: 5px;
+      padding: 15px;
+      text-align: center;
+      
     `
 
     const UL = styled.ul`
@@ -38,10 +40,13 @@ class BlogPostTemplate extends React.Component {
 
     const Content = styled.div`
        padding: 5px 20em;
- 
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+      
        @media only screen and (max-width: 600px) {
        padding: 5px 2em;
-      
+
       }
     `
     const Footer = styled.div`
@@ -49,7 +54,6 @@ class BlogPostTemplate extends React.Component {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width: 100vw; 
     @media only screen and (max-width: 600px) {
     padding: 5px 2em;
     `
@@ -63,32 +67,31 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const { frontmatter: { title, date, description, tags }, excerpt, html } = this.props.data.markdownRemark
     return (<Layout location={this.props.location} title={siteTitle} mode={"light"}>
-        <SEO title={title} description={description || excerpt}/>
-        <H1>{title}</H1>
-        <Div>{date} <Clock/></Div>
+      <SEO title={title} description={description || excerpt}/>
+      <H1>{title}</H1>
+      <Div><Clock/> {date} </Div>
+      <Content dangerouslySetInnerHTML={{ __html: html }}/>
 
-        <Content dangerouslySetInnerHTML={{ __html: html }}/>
+      <hr style={{ marginBottom: rhythm(1) }}/>
 
-        <hr style={{ marginBottom: rhythm(1) }}/>
+      <Footer>
+        {tags && <TagWrapper>{tags.map((tag, index) => (
+          <StyledLink key={index} to={`/tags/${tag}`}>
+            <Tag>{tag}</Tag></StyledLink>))}</TagWrapper>}
+      </Footer>
 
-        <Footer>
-          {tags && <TagWrapper>{tags.map((tag, index) => (
-            <StyledLink key={index} to={`/tags/${tag}`}>
-              <Tag>{tag}</Tag></StyledLink>))}</TagWrapper>}
-        </Footer>
-
-        <UL>
-          <li>{previous && (<StyledLink to={previous.fields.slug} rel="prev">
-            ← {previous.frontmatter.title}
+      <UL>
+        <li>{previous && (<StyledLink to={previous.fields.slug} rel="prev">
+          ← {previous.frontmatter.title}
+        </StyledLink>)}
+        </li>
+        <li>
+          {next && (<StyledLink to={next.fields.slug} rel="next">
+            {next.frontmatter.title} →
           </StyledLink>)}
-          </li>
-          <li>
-            {next && (<StyledLink to={next.fields.slug} rel="next">
-              {next.frontmatter.title} →
-            </StyledLink>)}
-          </li>
-        </UL>
-      </Layout>)
+        </li>
+      </UL>
+    </Layout>)
   }
 }
 

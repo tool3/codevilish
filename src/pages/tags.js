@@ -2,32 +2,21 @@ import React from "react"
 import PropTypes from "prop-types"
 import kebabCase from "lodash/kebabCase"
 import { Helmet } from "react-helmet"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Header from "../components/header"
-import { Tag, Wrapper } from "../components/components"
-import styled from "styled-components"
+import { Tag, TagLink, TagPage } from "../components/components"
 
-const TagLink = styled(Link)`
-  color: white;
-  &:visited {
-    color: white;
-  }
-`
 
 const TagsPage = ({ data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } } }) => {
-  return (<Wrapper>
+  return (<TagPage>
     <Helmet title={title}/>
-    <div>
-      <Header title={"Tags"}/>
-      <ul>
-        {group.map(tag => (<Tag key={tag.fieldValue}>
-          <TagLink to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-            {tag.fieldValue} ({tag.totalCount})
-          </TagLink>
-        </Tag>))}
-      </ul>
-    </div>
-  </Wrapper>)
+    <Header title={"Tags"}/>
+    {group.map(tag => (<Tag key={tag.fieldValue}>
+      <TagLink to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+        {tag.fieldValue} ({tag.totalCount})
+      </TagLink>
+    </Tag>))}
+  </TagPage>)
 }
 
 TagsPage.propTypes = {
