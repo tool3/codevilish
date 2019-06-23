@@ -1,30 +1,15 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-
+import { graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
-import styled, { ThemeProvider } from "styled-components"
-import theme from "styled-theming"
+import { rhythm } from "../utils/typography"
+import styled from "styled-components"
+import { backgroundColor, color } from "../components/styles"
+import { StyledLink, Wrapper } from "../components/components"
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
-    const { tags } = post.frontmatter
-
-
-    const backgroundColor = theme("mode", {
-      light: "#fff", dark: "#000",
-    })
-
-    const color = theme("mode", {
-      light: "#000", dark: "#fff",
-    })
-
-
     const Tag = styled.div`
       background-color: ${backgroundColor};
       color: ${color};
@@ -32,7 +17,6 @@ class BlogPostTemplate extends React.Component {
       border-radius: 13px;
       padding: 5px;
       text-align: center;
-      vertical-align: center;
       font-size: 15px;
       line-height: 12px;
       margin: 5px;
@@ -41,52 +25,76 @@ class BlogPostTemplate extends React.Component {
     const TagWrapper = styled.div`
       display: flex;
       justify-content: flex-start;
+      flex-direction: row;
     `
-    console.log(backgroundColor)
 
-    return (<ThemeProvider theme={{ mode: "dark" }}>
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
-        />
-        <h1>{post.frontmatter.title}</h1>
-        <p style={{
-          ...scale(-1 / 5),
-          display: `block`,
-          marginBottom: rhythm(1),
-          marginTop: rhythm(-1),
-        }}>
-          {post.frontmatter.date}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }}/>
+    const H1 = styled.h1`
+      background-color: ${backgroundColor};
+      color: ${color};
+      font-family: 'Georgia', sans-serif;      
+      font-size: 2.5rem;
+      text-align: center;
+    `
+    const Div = styled.div`
+      background-color: ${backgroundColor};
+      color: ${color};
+      text-align: center;
+      font-size: 20px;
+      line-height: 12px;
+      margin: 5px;
+      padding: 5px;
+    `
+
+    const UL = styled.ul`
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    `
+
+    const Content = styled.div`
+       padding: 5px 350px;
+    `
+
+    const Footer = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    `
+
+    const { previous, next } = this.props.pageContext
+    const siteTitle = this.props.data.site.siteMetadata.title
+    const { frontmatter: { title, date, description, tags }, excerpt, html } = this.props.data.markdownRemark
+    return (<Wrapper>
+      <Layout location={this.props.location} title={siteTitle} mode={"light"}>
+        <SEO title={title} description={description || excerpt}/>
+        <H1>{title}</H1>
+        <Div>{date}</Div>
+
+        <Content dangerouslySetInnerHTML={{ __html: html }}/>
+
         <hr style={{ marginBottom: rhythm(1) }}/>
 
-        {tags && <TagWrapper>{tags.map(tag => <Tag>{tag}</Tag>)}</TagWrapper>}
+        <Footer>
+          {tags &&
+          <TagWrapper>{tags.map((tag, index) => <Tag key={index}>{tag}</Tag>)}</TagWrapper>}
+          <Bio/>
+        </Footer>
 
-        <Bio/>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (<Link to={previous.fields.slug} rel="prev">
-              ← {previous.frontmatter.title}
-            </Link>)}
+        <UL>
+          <li>{previous && (<StyledLink to={previous.fields.slug} rel="prev">
+            ← {previous.frontmatter.title}
+          </StyledLink>)}
           </li>
           <li>
-            {next && (<Link to={next.fields.slug} rel="next">
+            {next && (<StyledLink to={next.fields.slug} rel="next">
               {next.frontmatter.title} →
-            </Link>)}
+            </StyledLink>)}
           </li>
-        </ul>
+        </UL>
       </Layout>
-    </ThemeProvider>)
+    </Wrapper>)
   }
 }
 

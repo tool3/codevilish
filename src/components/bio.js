@@ -1,17 +1,11 @@
-/**
- * Bio component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
+import { FaGitlab, FaGithub, FaLinkedin } from "react-icons/fa"
+import { A } from "./components"
+import styled from "styled-components"
 
-import { rhythm } from "../utils/typography"
-
-const Bio = () => {
+const Bio = ({center}) => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
@@ -25,37 +19,69 @@ const Bio = () => {
         siteMetadata {
           author,
           social {
-            gitlab
+            gitlab,
+            github,
+            linkedIn
           }
         }
       }
     }
   `)
 
-  const { author, social } = data.site.siteMetadata;
-  return (<div
-    style={{
-      display: `flex`, marginBottom: rhythm(2.5),
-    }}
-  >
+  const Div = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 5px;
+  `
+  const P = styled.p`
+    margin-left: 5px;
+    font-family: Merriweather, sans-serif;
+  `
+
+  const SocialTray = styled.span`
+    display: flex;
+    justify-content: space-around;
+  `
+
+  const Gitlab = styled(FaGitlab)`
+    fill: #FCA326;
+  `
+
+  const Github = styled(FaGithub)`
+    fill: gray;
+  `
+ const LinkedIn = styled(FaLinkedin)`
+    fill: #0077B5;
+  `
+
+   // A.hovering()
+
+  const { author, social } = data.site.siteMetadata
+
+  return (<Div>
     <Image
       fixed={data.avatar.childImageSharp.fixed}
       alt={author}
-      style={{
-        marginRight: rhythm(1 / 2), marginBottom: 0, minWidth: 50, borderRadius: `100%`,
-      }}
-      imgStyle={{
-        borderRadius: `50%`,
-      }}
-    />
-    <p>
+      imgStyle={{ borderRadius: `50%` }}/>
+    <P>
       <strong>{author}</strong>
+
       <br/>
-      <a href={`https://gitlab.com/${social.gitlab}`}>
-        gitlab
-      </a>
-    </p>
-  </div>)
+      <SocialTray>
+        <A href={`https://gitlab.com/${social.gitlab}`}>
+          <Gitlab/>
+        </A>
+
+        <A href={`https://github.com/${social.github}`}>
+          <Github/>
+        </A>
+
+        <A href={`https://linkedin.com/in/${social.linkedIn}`}>
+          <LinkedIn/>
+        </A>
+      </SocialTray>
+    </P>
+  </Div>)
 }
 
 export default Bio
