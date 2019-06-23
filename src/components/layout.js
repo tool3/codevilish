@@ -12,7 +12,7 @@ const Footer = styled.footer`
   padding: 5px 10em;
   background-color: #ECF0F1; 
   width: 100%; 
-  height: 10rem;
+  height: 8rem;
      @media only screen and (max-width: 600px) {
        padding: 5px 2em;
 `

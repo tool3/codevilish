@@ -45,8 +45,7 @@ class BlogPostTemplate extends React.Component {
        justify-content: center;
       
        @media only screen and (max-width: 600px) {
-       padding: 5px 2em;
-
+       padding: 5px 1em;
       }
     `
     const Footer = styled.div`

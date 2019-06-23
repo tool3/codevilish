@@ -1,9 +1,5 @@
 import React from "react"
 import { StyledLink } from "./components"
-import { rhythm, scale } from "../utils/typography"
-// const Adjust = styled(FaAdjust)`
-//   cursor: pointer;
-// `
 import styled from "styled-components"
 
 const H1 = styled.h1`    
@@ -16,16 +12,10 @@ const H1 = styled.h1`
       align-items: center;
       font-weight: normal;  
      
-      &:hover {
-        opacity: 0.4;
-        animation: shimmer 1s infinite;
-      }
-      
-      @keyframes shimmer {
-      25% {
-      opacity: 0.3;
-      } 
-}
+      //&:first-child:hover {
+      //  filter: drop-shadow(1px 1px 1px black);
+      //  transition: 150ms ease-in-out;
+      //}
 `
 
 class Header extends React.Component {
