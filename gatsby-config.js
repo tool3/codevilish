@@ -26,8 +26,7 @@ module.exports = {
           wrapperStyle: `margin-bottom: 1.0725rem`,
         },
       }, `gatsby-remark-copy-linked-files`, `gatsby-remark-smartypants`, {
-        resolve: `gatsby-remark-prismjs`,
-        options: { showLineNumbers: true },
+        resolve: `gatsby-remark-prismjs`, options: { showLineNumbers: true },
       }],
     },
   }, `gatsby-transformer-sharp`, `gatsby-plugin-sharp`, {
@@ -48,9 +47,9 @@ module.exports = {
     resolve: `gatsby-plugin-typography`, options: {
       pathToConfigModule: `src/utils/typography`,
     },
-  }, {
-    resolve: `gatsby-plugin-styled-components`, options: {
-      // Add any options here
+  }, `gatsby-plugin-styled-components`, {
+    resolve: "gatsby-plugin-tags", options: {
+      templatePath: `${__dirname}/src/templates/tags.js`,
     },
   }],
 }

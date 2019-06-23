@@ -11,10 +11,10 @@ export const A = styled.a`
 `
 
 export const StyledLink = styled(props => <Link {...props} />)`
-  color: gray;
+  color: mediumaquamarine;
   text-decoration: none;
   &:visited {
-    color: lightgray;
+    color: mediumaquamarine;
   }
   `
 

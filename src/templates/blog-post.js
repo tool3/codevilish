@@ -53,7 +53,7 @@ class BlogPostTemplate extends React.Component {
     `
 
     const Content = styled.div`
-       padding: 5px 350px;
+       padding: 5px 480px;
     `
 
     const Footer = styled.div`
@@ -78,7 +78,7 @@ class BlogPostTemplate extends React.Component {
 
         <Footer>
           {tags &&
-          <TagWrapper>{tags.map((tag, index) => <Tag key={index}>{tag}</Tag>)}</TagWrapper>}
+          <TagWrapper>{tags.map((tag, index) => <StyledLink to={`/tags/${tag}`}><Tag key={index}>{tag}</Tag></StyledLink>)}</TagWrapper>}
           <Bio/>
         </Footer>
 

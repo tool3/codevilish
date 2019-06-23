@@ -14,7 +14,7 @@ class BlogIndex extends React.Component {
     super(props)
 
     this.state = {
-      mode: "dark"
+      mode: "light"
     }
 
     this.toggleLight = this.toggleLight.bind(this)
@@ -61,6 +61,7 @@ class BlogIndex extends React.Component {
 
     return (<ThemeProvider theme={{ mode: "light" }}>
         <Layout location={this.props.location} title={siteTitle} toggleTheme={this.toggleLight} mode={this.state.mode}>
+
           <SEO title="All posts"/>
           <Bio/>
           {posts.map(({ node }) => {
