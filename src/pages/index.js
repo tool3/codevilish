@@ -13,7 +13,7 @@ class BlogIndex extends React.Component {
     super(props)
 
     this.state = {
-      mode: "light"
+      mode: "light",
     }
 
     this.toggleLight = this.toggleLight.bind(this)
@@ -58,22 +58,23 @@ class BlogIndex extends React.Component {
 
 
     return (<ThemeProvider theme={{ mode: this.state.mode }}>
-        <Layout location={this.props.location} toggleLight={this.toggleLight} title={siteTitle} mode={this.state.mode}>
-          <SEO title="All posts"/>
-          {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug
-            return (<Div key={node.fields.slug}>
-              <h3 style={{ marginBottom: rhythm(1 / 4) }}>
-                <StyledLink to={node.fields.slug}>
-                  {title}
-                </StyledLink>
-              </h3>
-              <Small>{node.frontmatter.date}</Small>
-              <P
-                dangerouslySetInnerHTML={{ __html: node.frontmatter.description || node.excerpt }}/>
-            </Div>)
-          })}
-        </Layout>
+      <Layout location={this.props.location} toggleLight={this.toggleLight}
+              title={siteTitle} mode={this.state.mode}>
+        <SEO title="All posts"/>
+        {posts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug
+          return (<Div key={node.fields.slug}>
+            <h3 style={{ marginBottom: rhythm(1 / 4) }}>
+              <StyledLink to={node.fields.slug}>
+                {title}
+              </StyledLink>
+            </h3>
+            <Small>{node.frontmatter.date}</Small>
+            <P
+              dangerouslySetInnerHTML={{ __html: node.frontmatter.description || node.excerpt }}/>
+          </Div>)
+        })}
+      </Layout>
     </ThemeProvider>)
   }
 }

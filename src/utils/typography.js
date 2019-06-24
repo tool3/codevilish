@@ -1,16 +1,14 @@
-import Typography from "typography";
-import USWebDesign from "typography-theme-us-web-design-standards";
+import Typography from "typography"
+import Irving from "typography-theme-irving"
 
-USWebDesign.overrideThemeStyles = () => {
-  return {
-    "h1": {
-      fontSize: '25px',
-      fontWeight: 'bold'
-    },
-  }
-}
+Irving.baseFontSize = '18px'
+Irving.bodyFontFamily = ['Open Sans']
+Irving.bodyWeight = '300'
+Irving.headerWeight= '100'
 
-const typography = new Typography(USWebDesign);
+
+
+const typography = new Typography(Irving);
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {
   typography.injectStyles()

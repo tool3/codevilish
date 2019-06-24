@@ -7,11 +7,11 @@ const H1 = styled.h1`
       font-size: 3em;
       text-align: center;
       border-bottom: 2px dashed lightgray;
-      height: 2.1em;
+      height: 2em;
       justify-content: center;
       align-items: center;
       font-weight: normal;  
-     
+      font-family: 'Merriweather', "Open Sans", sans-serif;
       //&:first-child:hover {
       //  filter: drop-shadow(1px 1px 1px black);
       //  transition: 150ms ease-in-out;

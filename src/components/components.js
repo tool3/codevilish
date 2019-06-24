@@ -49,9 +49,16 @@ export const TagLink = styled(Link)`
   color: white;
   padding: 2px;
   text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  
   &:visited {
     color: white;
   }
+  &:hover {
+    text-decoration: none;
+    color: inherit; 
+    width: inherit;
+   }
 `
 
 export const TagPage = styled.div`
