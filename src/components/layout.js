@@ -13,6 +13,9 @@ const Footer = styled.footer`
   background-color: #ECF0F1; 
   width: 100%; 
   height: 8rem;
+  border-top: 1px solid lightgray;
+  box-shadow: 0 0 5px lightgray;
+  
      @media only screen and (max-width: 600px) {
        padding: 5px 2em;
 `

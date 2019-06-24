@@ -1,11 +1,11 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
-import { FaGitlab, FaGithub, FaLinkedin } from "react-icons/fa"
+import { FaGitlab, FaGithub, FaLinkedin, FaDev } from "react-icons/fa"
 import { A } from "./components"
 import styled from "styled-components"
 
-const Bio = ({center}) => {
+const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
@@ -28,6 +28,8 @@ const Bio = ({center}) => {
     }
   `)
 
+  const wrapIcon = (icon, color) => styled(icon)`&:hover { fill: ${color}; filter: none; }`
+
   const Div = styled.div`
     display: flex;
     justify-content: flex-start;
@@ -44,20 +46,13 @@ const Bio = ({center}) => {
     justify-content: space-around;
   `
 
-  const Gitlab = styled(FaGitlab)`
-    fill: #FCA326;
-  `
-
-  const Github = styled(FaGithub)`
-    fill: gray;
-  `
- const LinkedIn = styled(FaLinkedin)`
-    fill: #0077B5;
-  `
-
-   // A.hovering()
+  const Gitlab = wrapIcon(FaGitlab, "#FCA326")
+  const LinkedIn = wrapIcon(FaLinkedin, "#0077B5")
+  const Github = wrapIcon(FaGithub, "gray")
+  const Dev = wrapIcon(FaDev, "black");
 
   const { author, social } = data.site.siteMetadata
+  const LinkOut = ({href, children}) => <A href={href} target={'_blank'}>{children}</A>
 
   return (<Div>
     <Image
@@ -65,21 +60,24 @@ const Bio = ({center}) => {
       alt={author}
       imgStyle={{ borderRadius: `50%` }}/>
     <P>
-      <strong>{author}</strong>
-
+      {author}
       <br/>
       <SocialTray>
-        <A href={`https://gitlab.com/${social.gitlab}`}>
+        <LinkOut href={`https://gitlab.com/${social.gitlab}`}>
           <Gitlab/>
-        </A>
+        </LinkOut>
 
-        <A href={`https://github.com/${social.github}`}>
+        <LinkOut href={`https://github.com/${social.github}`}>
           <Github/>
-        </A>
+        </LinkOut>
 
-        <A href={`https://linkedin.com/in/${social.linkedIn}`}>
+        <LinkOut href={`https://linkedin.com/in/${social.linkedIn}`}>
           <LinkedIn/>
-        </A>
+        </LinkOut>
+
+        <LinkOut href={`https://dev.to/${social.github}`}>
+          <Dev/>
+        </LinkOut>
       </SocialTray>
     </P>
   </Div>)

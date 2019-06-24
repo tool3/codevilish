@@ -25,6 +25,7 @@ export const Wrapper = styled.div`
   background-color: ${backgroundColor};
   color: ${color};
   min-height: 100vh;
+
   `
 
 export const Tag = styled.div`
