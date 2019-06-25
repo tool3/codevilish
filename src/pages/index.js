@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 import styled, { ThemeProvider } from "styled-components"
 import { backgroundColor, color } from "../components/styles"
-import { StyledLink } from "../components/components"
+import { Clock, StyledLink } from "../components/components"
 
 class BlogIndex extends React.Component {
 
@@ -29,51 +29,69 @@ class BlogIndex extends React.Component {
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
 
-
     const Div = styled.div`
       background-color: ${backgroundColor};
       color: ${color};
-      border: 1px solid ${color};
-      border-radius: 13px;
       padding: 5px;
-      text-align: center;
-      vertical-align: center;
       font-size: 15px;
-      line-height: 12px;
       margin: 10px;
-    `
-
-    const P = styled.p`
-      background-color: ${backgroundColor};
-      color: ${color};
-      font-size: 15px;
-      line-height: 18px;
+      width: 55em;
+      @media only screen and (max-width: 600px) {
+        width: auto;
+      }
     `
     const Small = styled.small`
       background-color: ${backgroundColor};
-      color: ${color};
-      font-size: 13px;
+      color: indianred;
+      font-size: 15px;
       line-height: 25px;
     `
 
+    const PostsMain = styled.div`
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    `
+
+    const MiniClock = styled(Clock)`
+      width: 11px;
+      height: 11px;
+      margin: 0;
+    `
+
+    const H3 = styled.h3`
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+    `
+
+    const HeaderLink = styled(StyledLink)`
+      font-size: 1.5rem;
+      font-weight: bold;
+    `
+    const Preview = styled.div`
+      margin-top: 10px;
+      width: auto;
+    `
 
     return (<ThemeProvider theme={{ mode: this.state.mode }}>
       <Layout location={this.props.location} toggleLight={this.toggleLight}
               title={siteTitle} mode={this.state.mode}>
         <SEO title="All posts"/>
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (<Div key={node.fields.slug}>
-            <h3 style={{ marginBottom: rhythm(1 / 4) }}>
-              <StyledLink to={node.fields.slug}>
-                {title}
-              </StyledLink>
-            </h3>
-            <Small>{node.frontmatter.date}</Small>
-            <P
-              dangerouslySetInnerHTML={{ __html: node.frontmatter.description || node.excerpt }}/>
-          </Div>)
-        })}
+        <PostsMain>
+          {posts.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug
+            return (<Div key={node.fields.slug}>
+              <H3 style={{ marginBottom: rhythm(1 / 4) }}>
+                <HeaderLink to={node.fields.slug}>{title}</HeaderLink>
+                <Small><MiniClock/> {node.frontmatter.date}</Small>
+              </H3>
+              <Preview
+                dangerouslySetInnerHTML={{ __html: node.frontmatter.description || node.excerpt }}/>
+            </Div>)
+          })}
+        </PostsMain>
       </Layout>
     </ThemeProvider>)
   }

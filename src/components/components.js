@@ -1,7 +1,10 @@
+/* eslint-disable */
+
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import { backgroundColor, color } from "./styles"
+import { FaRegClock } from "react-icons/fa"
 
 export const A = styled.a`
   color: lightgray;
@@ -10,11 +13,11 @@ export const A = styled.a`
   }
 `
 
-export const StyledLink = styled(props => <Link {...props} />)`
-  color: mediumaquamarine;
+export const StyledLink = styled(Link)`
+  color: #1e1e1e;
   text-decoration: none;
   &:visited {
-    color: mediumaquamarine;
+    color: #1e1e1e;
   }
   `
 
@@ -25,7 +28,6 @@ export const Wrapper = styled.div`
   background-color: ${backgroundColor};
   color: ${color};
   min-height: 100vh;
-
   `
 
 export const Tag = styled.div`
@@ -37,6 +39,9 @@ export const Tag = styled.div`
       font-size: 15px;
       line-height: 12px;
       margin: 5px;
+      &:hover:before {
+        content: "#";
+      }
     `
 
 export const TagWrapper = styled.div`
@@ -55,10 +60,10 @@ export const TagLink = styled(Link)`
   &:visited {
     color: white;
   }
+  
   &:hover {
     text-decoration: none;
-    color: inherit; 
-    width: inherit;
+    color: white;
    }
 `
 
@@ -67,4 +72,9 @@ export const TagPage = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-direction: column; 
+`
+export const Clock = styled(FaRegClock)`
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
 `

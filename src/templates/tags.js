@@ -2,8 +2,12 @@ import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import Header from "../components/header"
-import { StyledLink, Tag, TagLink, TagPage } from "../components/components"
+import { StyledLink, TagLink, TagPage } from "../components/components"
+import styled from "styled-components"
 
+const Div = styled.div`
+  background: #1e1e1e;
+`
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
@@ -15,7 +19,7 @@ const Tags = ({ pageContext, data }) => {
     {edges.map(({ node }) => {
       const { slug } = node.fields
       const { title } = node.frontmatter
-      return (<Tag key={slug}><TagLink to={slug}>{title}</TagLink></Tag>)
+      return (<Div key={slug}><TagLink to={slug}>{title}</TagLink></Div>)
     })}
     <StyledLink to="/tags">All tags</StyledLink>
   </TagPage>)

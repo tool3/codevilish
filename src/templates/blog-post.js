@@ -5,8 +5,7 @@ import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 import styled from "styled-components"
 import { backgroundColor, color } from "../components/styles"
-import { StyledLink, Tag, TagWrapper } from "../components/components"
-import { FaClock } from "react-icons/fa"
+import { Clock, StyledLink, Tag, TagWrapper } from "../components/components"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -27,7 +26,6 @@ class BlogPostTemplate extends React.Component {
       margin: 5px;
       padding: 15px;
       text-align: center;
-      
     `
 
     const UL = styled.ul`
@@ -54,12 +52,11 @@ class BlogPostTemplate extends React.Component {
     flex-direction: column;
     align-items: center;
     @media only screen and (max-width: 600px) {
-    padding: 5px 2em;
+      padding: 5px 2em;
+    }
     `
-
-    const Clock = styled(FaClock)`
-    width: 15px;
-    height: 15px;
+    const Date = styled(Div)`
+       color: indianred;
     `
 
     const { previous, next } = this.props.pageContext
@@ -68,7 +65,7 @@ class BlogPostTemplate extends React.Component {
     return (<Layout location={this.props.location} title={siteTitle} mode={"light"}>
       <SEO title={title} description={description || excerpt}/>
       <H1>{title}</H1>
-      <Div><Clock/> {date} </Div>
+      <Date><Clock/>{date}</Date>
       <Content dangerouslySetInnerHTML={{ __html: html }}/>
 
       <hr style={{ marginBottom: rhythm(1) }}/>

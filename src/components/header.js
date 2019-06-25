@@ -6,23 +6,18 @@ const H1 = styled.h1`
       display: flex; 
       font-size: 3em;
       text-align: center;
-      border-bottom: 2px dashed lightgray;
+      border-bottom: 2px dotted lightgray;
       height: 2em;
       justify-content: center;
       align-items: center;
       font-weight: normal;  
-      font-family: 'Merriweather', "Open Sans", sans-serif;
-      //&:first-child:hover {
-      //  filter: drop-shadow(1px 1px 1px black);
-      //  transition: 150ms ease-in-out;
-      //}
+      color: aquamarine;
 `
 
 class Header extends React.Component {
   render() {
     const { title } = this.props
-    return (<H1><StyledLink
-      to={`/`}>{title}</StyledLink>{/*<Adjust onClick={this.props.toggleLight}/>*/}</H1>)
+    return (<H1><StyledLink to={`/`}>{title}</StyledLink>{/*<Adjust onClick={this.props.toggleLight}/>*/}</H1>)
   }
 }
 

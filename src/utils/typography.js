@@ -3,9 +3,9 @@ import Irving from "typography-theme-irving"
 
 Irving.baseFontSize = '18px'
 Irving.bodyFontFamily = ['Open Sans']
-Irving.bodyWeight = '300'
-Irving.headerWeight= '100'
-
+Irving.headerFontFamily = ['Merriweather']
+Irving.headerWeight= '400'
+Irving.bodyWeight = '400'
 
 
 const typography = new Typography(Irving);
