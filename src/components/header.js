@@ -25,10 +25,10 @@ const Imager = styled.div`
     src: url('../../content/assets/font/Failed3dFilled-Regular.woff') format('woff');
     src: url('../../content/assets/font/Failed-3d-Filled.ttf') format('truetype');
     font-family: 'Failed 3d Filled';
-    font-weight: normal;
     font-style: normal;
    }
-    font-family: 'Failed 3d Filled', 'Open Sans', 'Marrieweather', serif;
+    font-family: 'Failed 3d Filled', 'merriweather', serif;
+    font-weight: 400;
     color: #1e1e1e;
     font-size: 1.5em;
 `
