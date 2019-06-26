@@ -28,7 +28,16 @@ const Bio = () => {
     }
   `)
 
-  const wrapIcon = (icon, color) => styled(icon)`&:hover { fill: ${color}; filter: none; }`
+  const wrapIcon = (icon, color) => styled(icon)`
+      &:hover { 
+      fill: ${color};
+      filter: none;
+      }
+      
+    @media only screen and (max-width: 600px) {
+      fill: ${color};
+    }
+    `
 
   const Div = styled.div`
     display: flex;

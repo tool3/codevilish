@@ -65,6 +65,7 @@ class BlogPostTemplate extends React.Component {
     display: flex;
     justify-content: center;
     font-size: 15px;
+    color: gray;
     `
 
     const { previous, next } = this.props.pageContext

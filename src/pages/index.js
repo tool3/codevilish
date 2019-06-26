@@ -44,7 +44,6 @@ class BlogIndex extends React.Component {
       color: indianred;
       font-size: 15px;
       line-height: 25px;
-      margin-top: 15px;
       display: inline-block;
     `
 
@@ -70,7 +69,6 @@ class BlogIndex extends React.Component {
 
     const HeaderLink = styled(StyledLink)`
       font-size: 1.5rem;
-      //font-weight: 600;
     `
     const Preview = styled.div`
       font-size: 20px;
@@ -79,10 +77,8 @@ class BlogIndex extends React.Component {
 
     const ReadTime = styled.div`
       font-size: 15px;
-      
-      margin-right: 15px;
-      color: ${color};  
-      
+      margin: 3px 5px;
+      color: gray;  
     `
 
     return (<ThemeProvider theme={{ mode: this.state.mode }}>
@@ -98,9 +94,9 @@ class BlogIndex extends React.Component {
                 <HeaderLink to={node.fields.slug}>{title}</HeaderLink>
                 <Small>
                   <MiniClock/> {node.frontmatter.date}
-                  <ReadTime>{readTime}</ReadTime>
                 </Small>
               </H3>
+              <ReadTime>{readTime}</ReadTime>
               <Preview
                 dangerouslySetInnerHTML={{ __html: node.frontmatter.description || node.excerpt }}/>
             </Div>)
