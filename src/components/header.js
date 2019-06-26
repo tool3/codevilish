@@ -20,21 +20,6 @@ const HeaderTitle = styled(StyledLink)`
   && { color: white;}
 `
 
-// const Imager = styled.div`
-//   @font-face {
-//     src: url('../../content/assets/font/Failed3dFilled-Regular.woff') format('woff');
-//     font-family: 'Failed 3d Filled';
-//     font-weight: normal;
-//     font-style: normal;
-//    }
-//     font-family: 'Failed 3d Filled', 'Open Sans', 'Marrieweather', serif;
-//     color: lightgoldenrodyellow;
-//     transition: 0.3s ease-in-out;
-//     &:hover {
-//      opacity: 0.5;
-//     }
-// `
-
 const Header = () => {
   const data = useStaticQuery(graphql`
       query HeaderQuery {

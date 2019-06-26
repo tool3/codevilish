@@ -41,7 +41,7 @@ module.exports = {
       short_name: `Codenvoy`,
       start_url: `/`,
       background_color: `#ffffff`,
-      theme_color: `#1e1e1e`,
+      theme_color: `#CD5B5C`,
       icon: `content/assets/gatsby-icon.png`,
       display: `standalone`,
     },
