@@ -57,12 +57,14 @@ class BlogPostTemplate extends React.Component {
     const Date = styled(Div)`
        color: indianred;
        padding: 5px;
+       font-size: 15px;
        margin: 0; 
     `
 
     const ReadTime = styled.div`
     display: flex;
     justify-content: center;
+    font-size: 15px;
     `
 
     const { previous, next } = this.props.pageContext

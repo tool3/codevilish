@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 import styled, { ThemeProvider } from "styled-components"
 import { backgroundColor, color } from "../components/styles"
 import { Clock, StyledLink } from "../components/components"
@@ -45,6 +44,8 @@ class BlogIndex extends React.Component {
       color: indianred;
       font-size: 15px;
       line-height: 25px;
+      margin-top: 15px;
+      display: inline-block;
     `
 
     const PostsMain = styled.div`
@@ -64,6 +65,7 @@ class BlogIndex extends React.Component {
       justify-content: space-between;
       align-items: center;
       text-decoration: none;
+      margin-bottom: 0;
     `
 
     const HeaderLink = styled(StyledLink)`
@@ -71,14 +73,13 @@ class BlogIndex extends React.Component {
       //font-weight: 600;
     `
     const Preview = styled.div`
-      margin-top: 10px;
       font-size: 20px;
       width: auto;
     `
 
     const ReadTime = styled.div`
       font-size: 15px;
-      display: inline-block;
+      
       margin-right: 15px;
       color: ${color};  
       
@@ -93,9 +94,12 @@ class BlogIndex extends React.Component {
             const title = node.frontmatter.title || node.fields.slug;
             const readTime = node.fields.readingTime.text;
             return (<Div key={node.fields.slug}>
-              <H3 style={{ marginBottom: rhythm(1) }}>
+              <H3>
                 <HeaderLink to={node.fields.slug}>{title}</HeaderLink>
-                <Small><ReadTime>{readTime}</ReadTime><MiniClock/> {node.frontmatter.date}</Small>
+                <Small>
+                  <MiniClock/> {node.frontmatter.date}
+                  <ReadTime>{readTime}</ReadTime>
+                </Small>
               </H3>
               <Preview
                 dangerouslySetInnerHTML={{ __html: node.frontmatter.description || node.excerpt }}/>
