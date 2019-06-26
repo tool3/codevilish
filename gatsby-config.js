@@ -42,7 +42,7 @@ module.exports = {
       start_url: `/`,
       background_color: `#ffffff`,
       theme_color: `#CD5B5C`,
-      icon: `content/assets/gatsby-icon.png`,
+      icon: `content/assets/logo.png`,
       display: `standalone`,
     },
   }, `gatsby-plugin-offline`, `gatsby-plugin-react-helmet`, {
