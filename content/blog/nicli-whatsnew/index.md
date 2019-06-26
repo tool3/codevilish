@@ -3,9 +3,9 @@ title: Whats new in nicli
 date: "2019-04-01T22:12:03.284Z"
 tags: ["bash", "javascript", "nicli"]
 ---
-# 🔥 What’s new in `nicli` 🔥 
 
-## status
+# 🔥 What’s new in `nicli` 🔥 
+## status   
 use this command to see the git status of each of the sub systems.
 `ra status` will return a list of all projects - their current branch - and whether there were any changes.
 

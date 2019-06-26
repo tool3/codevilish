@@ -68,11 +68,20 @@ class BlogIndex extends React.Component {
 
     const HeaderLink = styled(StyledLink)`
       font-size: 1.5rem;
-      font-weight: bold;
+      //font-weight: 600;
     `
     const Preview = styled.div`
       margin-top: 10px;
+      font-size: 20px;
       width: auto;
+    `
+
+    const ReadTime = styled.div`
+      font-size: 15px;
+      display: inline-block;
+      margin-right: 15px;
+      color: ${color};  
+      
     `
 
     return (<ThemeProvider theme={{ mode: this.state.mode }}>
@@ -81,11 +90,12 @@ class BlogIndex extends React.Component {
         <SEO title="All posts"/>
         <PostsMain>
           {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug
+            const title = node.frontmatter.title || node.fields.slug;
+            const readTime = node.fields.readingTime.text;
             return (<Div key={node.fields.slug}>
-              <H3 style={{ marginBottom: rhythm(1 / 4) }}>
+              <H3 style={{ marginBottom: rhythm(1) }}>
                 <HeaderLink to={node.fields.slug}>{title}</HeaderLink>
-                <Small><MiniClock/> {node.frontmatter.date}</Small>
+                <Small><ReadTime>{readTime}</ReadTime><MiniClock/> {node.frontmatter.date}</Small>
               </H3>
               <Preview
                 dangerouslySetInnerHTML={{ __html: node.frontmatter.description || node.excerpt }}/>
@@ -111,7 +121,10 @@ export const pageQuery = graphql`
         node {
           excerpt
           fields {
-            slug
+            slug,
+            readingTime {
+              text
+            }
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")

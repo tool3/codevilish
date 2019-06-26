@@ -44,6 +44,7 @@ const Bio = () => {
   const SocialTray = styled.span`
     display: flex;
     justify-content: space-around;
+    padding-top: 6px;
   `
 
   const Gitlab = wrapIcon(FaGitlab, "#FCA326")

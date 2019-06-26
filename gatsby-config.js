@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `CodeXS`,
+    title: `Codenvoy`,
     author: `Tal Hayut`,
-    description: `The codex blog.`,
-    siteUrl: `https://codex.netlify.com`,
+    description: `The Codenvoy blog.`,
+    siteUrl: `https://codenvoy.netlify.com`,
     social: {
       gitlab: "talhayut", github: "tool3", linkedIn: "talhayut",
     },
@@ -27,7 +27,9 @@ module.exports = {
         },
       }, `gatsby-remark-copy-linked-files`, `gatsby-remark-smartypants`, {
         resolve: `gatsby-remark-prismjs`, options: { showLineNumbers: true },
-      }],
+      },
+        `gatsby-remark-reading-time`
+      ],
     },
   }, `gatsby-transformer-sharp`, `gatsby-plugin-sharp`, {
     resolve: `gatsby-plugin-google-analytics`, options: {
@@ -35,8 +37,8 @@ module.exports = {
     },
   }, `gatsby-plugin-feed`, {
     resolve: `gatsby-plugin-manifest`, options: {
-      name: `Code XS`,
-      short_name: `CodeXS`,
+      name: `Codenvoy`,
+      short_name: `Codenvoy`,
       start_url: `/`,
       background_color: `#ffffff`,
       theme_color: `#1e1e1e`,

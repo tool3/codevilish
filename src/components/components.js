@@ -7,7 +7,7 @@ import { backgroundColor, color } from "./styles"
 import { FaRegClock } from "react-icons/fa"
 
 export const A = styled.a`
-  color: lightgray;
+  //color: lightgray;
   &:visited {
    color: lightgray;
   }
@@ -31,7 +31,7 @@ export const Wrapper = styled.div`
   `
 
 export const Tag = styled.div`
-      background-color: hotpink;
+      background-color: indianred;
       color: ghostwhite;
       border-radius: 13px;
       padding: 5px;

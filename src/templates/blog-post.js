@@ -10,11 +10,10 @@ import { Clock, StyledLink, Tag, TagWrapper } from "../components/components"
 class BlogPostTemplate extends React.Component {
   render() {
 
-
     const H1 = styled.h1`
       background-color: ${backgroundColor};
       color: ${color};
-      font-size: 2.5rem;
+      font-size: 2.3rem;
       text-align: center;
       margin: 0;
     `
@@ -57,15 +56,23 @@ class BlogPostTemplate extends React.Component {
     `
     const Date = styled(Div)`
        color: indianred;
+       padding: 5px;
+       margin: 0; 
+    `
+
+    const ReadTime = styled.div`
+    display: flex;
+    justify-content: center;
     `
 
     const { previous, next } = this.props.pageContext
     const siteTitle = this.props.data.site.siteMetadata.title
-    const { frontmatter: { title, date, description, tags }, excerpt, html } = this.props.data.markdownRemark
+    const { frontmatter: { title, date, description, tags }, fields: {readingTime: { text }}, excerpt, html } = this.props.data.markdownRemark
     return (<Layout location={this.props.location} title={siteTitle} mode={"light"}>
       <SEO title={title} description={description || excerpt}/>
       <H1>{title}</H1>
       <Date><Clock/>{date}</Date>
+      <ReadTime>{text}</ReadTime>
       <Content dangerouslySetInnerHTML={{ __html: html }}/>
 
       <hr style={{ marginBottom: rhythm(1) }}/>
@@ -105,6 +112,11 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      fields {
+        readingTime {
+          text
+        }
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
