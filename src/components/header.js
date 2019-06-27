@@ -3,6 +3,7 @@ import { StyledLink } from "./components"
 import styled from "styled-components"
 // import Image from "gatsby-image"
 // import { graphql, useStaticQuery } from "gatsby"
+// import { FaAdjust } from "react-icons/fa"
 
 const H1 = styled.h1`    
       display: flex; 
@@ -23,7 +24,7 @@ const HeaderTitle = styled(StyledLink)`
 const Imager = styled.div`
   @font-face {
     src: url('../../content/assets/font/Failed3dFilled-Regular.woff') format('woff');
-    src: url('../../content/assets/font/Failed-3d-Filled.ttf') format('truetype');
+    src: url('../../content/assets/font/Failed-3d-Filled.ttf') format('ttf');
     font-family: 'Failed 3d Filled';
     font-style: normal;
    }
@@ -33,7 +34,7 @@ const Imager = styled.div`
     font-size: 1.5em;
 `
 
-const Header = () => {
+const Header = ({ toggleLight }) => {
   // const data = useStaticQuery(graphql`
   //     query HeaderQuery {
   //         avatar: file(absolutePath: { regex: "/header.png/" }) {
@@ -46,13 +47,15 @@ const Header = () => {
   //     }
   // `)
 
-  return (<H1><HeaderTitle
-    to={`/`}>
-
-    {/*<Image fixed={data.avatar.childImageSharp.fixed}>Codenvoy</Image>*/}
-    <Imager>Codenvoy</Imager>
-  </HeaderTitle>{/*<Adjust onClick={this.props.toggleLight}/>*/}
-  </H1>)
+  return (
+    <H1>
+      <HeaderTitle to={`/`}>
+      {/*<Image fixed={data.avatar.childImageSharp.fixed}>Codenvoy</Image>*/}
+      <Imager>Codenvoy </Imager>
+    </HeaderTitle>
+      {/*<div><FaAdjust onClick={toggleLight}/></div>*/}
+    </H1>
+  )
 }
 
 export default Header

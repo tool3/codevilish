@@ -1,23 +1,21 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
-import styled from "styled-components"
+import styled, { ThemeProvider } from "styled-components"
 import { backgroundColor, color } from "../components/styles"
 import { Clock, StyledLink, Tag, TagWrapper } from "../components/components"
 
-class BlogPostTemplate extends React.Component {
-  render() {
-
-    const H1 = styled.h1`
+const BlogPostTemplate = ({ pageContext, data, location }) => {
+  const H1 = styled.h1`
       background-color: ${backgroundColor};
       color: ${color};
       font-size: 2.3rem;
       text-align: center;
       margin: 0;
     `
-    const Div = styled.div`
+  const Div = styled.div`
       background-color: ${backgroundColor};
       color: ${color};
       font-size: 20px;
@@ -27,7 +25,7 @@ class BlogPostTemplate extends React.Component {
       text-align: center;
     `
 
-    const UL = styled.ul`
+  const UL = styled.ul`
     display: flex;
     justify-content: space-around;
     list-style: none;
@@ -35,17 +33,19 @@ class BlogPostTemplate extends React.Component {
     margin: 0;
     `
 
-    const Content = styled.div`
+  const Content = styled.div`
        padding: 5px 20em;
        display: flex;
        flex-direction: column;
        justify-content: center;
+       background-color: ${backgroundColor};
+       color: ${color};
       
        @media only screen and (max-width: 600px) {
-       padding: 5px 1em;
+        padding: 5px 1em;
       }
     `
-    const Footer = styled.div`
+  const Footer = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -54,78 +54,80 @@ class BlogPostTemplate extends React.Component {
       padding: 5px 2em;
     }
     `
-    const Date = styled(Div)`
+  const Date = styled(Div)`
        color: indianred;
        padding: 5px;
        font-size: 15px;
        margin: 0; 
     `
 
-    const ReadTime = styled.div`
+  const ReadTime = styled.div`
     display: flex;
     justify-content: center;
     font-size: 15px;
     color: gray;
     `
 
-    const { previous, next } = this.props.pageContext
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const { frontmatter: { title, date, description, tags }, fields: {readingTime: { text }}, excerpt, html } = this.props.data.markdownRemark
-    return (<Layout location={this.props.location} title={siteTitle} mode={"light"}>
-      <SEO title={title} description={description || excerpt}/>
-      <H1>{title}</H1>
-      <Date><Clock/>{date}</Date>
-      <ReadTime>{text}</ReadTime>
-      <Content dangerouslySetInnerHTML={{ __html: html }}/>
+  const { previous, next } = pageContext
+  const siteTitle = data.site.siteMetadata.title
+  const { frontmatter: { title, date, description, tags }, fields: { readingTime: { text } }, excerpt, html } = data.markdownRemark
+  return (
+      <Layout location={location} title={siteTitle}>
+        <SEO title={title} description={description || excerpt}/>
+        <H1>{title}</H1>
+        <Date><Clock/>{date}</Date>
+        <ReadTime>{text}</ReadTime>
+        <Content dangerouslySetInnerHTML={{ __html: html }}/>
 
-      <hr style={{ marginBottom: rhythm(1) }}/>
+        <hr style={{ marginBottom: rhythm(1) }}/>
 
-      <Footer>
-        {tags && <TagWrapper>{tags.map((tag, index) => (
-          <StyledLink key={index} to={`/tags/${tag}`}>
-            <Tag>{tag}</Tag></StyledLink>))}</TagWrapper>}
-      </Footer>
+        <Footer>
+          {tags &&
+          <TagWrapper>{tags.map((tag, index) => (
+            <StyledLink key={index} to={`/tags/${tag}`}>
+              <Tag>{tag}</Tag></StyledLink>))}</TagWrapper>}
+        </Footer>
 
-      <UL>
-        <li>{previous && (<StyledLink to={previous.fields.slug} rel="prev">
-          ← {previous.frontmatter.title}
-        </StyledLink>)}
-        </li>
-        <li>
-          {next && (<StyledLink to={next.fields.slug} rel="next">
-            {next.frontmatter.title} →
+        <UL>
+          <li>{previous && (<StyledLink to={previous.fields.slug} rel="prev">
+            ← {previous.frontmatter.title}
           </StyledLink>)}
-        </li>
-      </UL>
-    </Layout>)
-  }
+          </li>
+          <li>
+            {next && (<StyledLink to={next.fields.slug} rel="next">
+              {next.frontmatter.title} →
+            </StyledLink>)}
+          </li>
+        </UL>
+      </Layout>
+  )
 }
 
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      fields {
-        readingTime {
-          text
+    query BlogPostBySlug($slug: String!) {
+        site {
+            siteMetadata {
+                title
+                author
+            }
         }
-      }
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-        description
-        tags
-      }
+        markdownRemark(fields: { slug: { eq: $slug } }) {
+            id
+            excerpt(pruneLength: 160)
+            html
+            fields {
+                readingTime {
+                    text
+                }
+            }
+            frontmatter {
+                title
+                date(formatString: "MMMM DD, YYYY")
+                description
+                tags
+            }
+        }
     }
-  }
 `

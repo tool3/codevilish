@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -6,29 +6,12 @@ import styled, { ThemeProvider } from "styled-components"
 import { backgroundColor, color } from "../components/styles"
 import { Clock, StyledLink } from "../components/components"
 
-class BlogIndex extends React.Component {
+function BlogIndex({ data, location }) {
+  const [mode, toggleLight] = useState("light");
+  const siteTitle = data.site.siteMetadata.title
+  const posts = data.allMarkdownRemark.edges
 
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      mode: "light",
-    }
-
-    this.toggleLight = this.toggleLight.bind(this)
-  }
-
-  toggleLight() {
-    this.setState({ mode: this.state.mode === "light" ? "dark" : "light" })
-  }
-
-
-  render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMarkdownRemark.edges
-
-    const Div = styled.div`
+  const Div = styled.div`
       background-color: ${backgroundColor};
       color: ${color};
       padding: 5px;
@@ -39,7 +22,7 @@ class BlogIndex extends React.Component {
         width: auto;
       }
     `
-    const Small = styled.small`
+  const Small = styled.small`
       background-color: ${backgroundColor};
       color: indianred;
       font-size: 15px;
@@ -47,19 +30,19 @@ class BlogIndex extends React.Component {
       display: inline-block;
     `
 
-    const PostsMain = styled.div`
+  const PostsMain = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
     `
 
-    const MiniClock = styled(Clock)`
+  const MiniClock = styled(Clock)`
       width: 11px;
       height: 11px;
       margin: 0;
     `
 
-    const H3 = styled.h3`
+  const H3 = styled.h3`
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -67,28 +50,29 @@ class BlogIndex extends React.Component {
       margin-bottom: 0;
     `
 
-    const HeaderLink = styled(StyledLink)`
+  const HeaderLink = styled(StyledLink)`
       font-size: 1.5rem;
     `
-    const Preview = styled.div`
+  const Preview = styled.div`
       font-size: 20px;
       width: auto;
     `
 
-    const ReadTime = styled.div`
+  const ReadTime = styled.div`
       font-size: 15px;
       margin: 3px 5px;
       color: gray;  
     `
 
-    return (<ThemeProvider theme={{ mode: this.state.mode }}>
-      <Layout location={this.props.location} toggleLight={this.toggleLight}
-              title={siteTitle} mode={this.state.mode}>
+  return (
+    <ThemeProvider theme={{ mode }}>
+      <Layout location={location} toggleLight={() => mode === "light" ? toggleLight("dark") : toggleLight("light")}
+              title={siteTitle} mode={mode}>
         <SEO title="All posts"/>
         <PostsMain>
           {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug;
-            const readTime = node.fields.readingTime.text;
+            const title = node.frontmatter.title || node.fields.slug
+            const readTime = node.fields.readingTime.text
             return (<Div key={node.fields.slug}>
               <H3>
                 <HeaderLink to={node.fields.slug}>{title}</HeaderLink>
@@ -103,37 +87,37 @@ class BlogIndex extends React.Component {
           })}
         </PostsMain>
       </Layout>
-    </ThemeProvider>)
-  }
+    </ThemeProvider>
+  )
 }
 
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug,
-            readingTime {
-              text
+    query {
+        site {
+            siteMetadata {
+                title
             }
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-            tags
-          }
         }
-      }
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+            edges {
+                node {
+                    excerpt
+                    fields {
+                        slug,
+                        readingTime {
+                            text
+                        }
+                    }
+                    frontmatter {
+                        date(formatString: "MMMM DD, YYYY")
+                        title
+                        description
+                        tags
+                    }
+                }
+            }
+        }
     }
-  }
 `

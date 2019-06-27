@@ -14,10 +14,10 @@ export const A = styled.a`
 `
 
 export const StyledLink = styled(Link)`
-  color: #1e1e1e;
+  color: ${color};
   text-decoration: none;
   &:visited {
-    color: #1e1e1e;
+    color: ${color};
   }
   `
 

@@ -21,11 +21,10 @@ const Footer = styled.footer`
 
 class Layout extends React.Component {
   render() {
-    const { children } = this.props
-
-    return (<ThemeProvider theme={{ mode: this.props.mode }}>
+    const { children, toggleLight, mode, title } = this.props
+    return (<ThemeProvider theme={{ mode }}>
       <Wrapper>
-        <Header toggleLight={this.props.toggleLight} title={this.props.title}/>
+        <Header toggleLight={toggleLight} title={title}/>
         <div>{children}</div>
         <Footer>
           <Bio/>
