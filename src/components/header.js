@@ -3,7 +3,6 @@ import { StyledLink } from "./components"
 import styled from "styled-components"
 // import Image from "gatsby-image"
 // import { graphql, useStaticQuery } from "gatsby"
-// import { FaAdjust } from "react-icons/fa"
 
 const H1 = styled.h1`    
       display: flex; 
@@ -34,7 +33,7 @@ const Imager = styled.div`
     font-size: 1.5em;
 `
 
-const Header = ({ toggleLight }) => {
+const Header = ({ title }) => {
   // const data = useStaticQuery(graphql`
   //     query HeaderQuery {
   //         avatar: file(absolutePath: { regex: "/header.png/" }) {
@@ -51,9 +50,8 @@ const Header = ({ toggleLight }) => {
     <H1>
       <HeaderTitle to={`/`}>
       {/*<Image fixed={data.avatar.childImageSharp.fixed}>Codenvoy</Image>*/}
-      <Imager>Codenvoy </Imager>
+      <Imager>{title}</Imager>
     </HeaderTitle>
-      {/*<div><FaAdjust onClick={toggleLight}/></div>*/}
     </H1>
   )
 }

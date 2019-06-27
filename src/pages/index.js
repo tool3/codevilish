@@ -1,14 +1,11 @@
-import React, { useState } from "react"
+import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
 import SEO from "../components/seo"
-import styled, { ThemeProvider } from "styled-components"
+import styled from "styled-components"
 import { backgroundColor, color } from "../components/styles"
 import { Clock, StyledLink } from "../components/components"
 
-function BlogIndex({ data, location }) {
-  const [mode, toggleLight] = useState("light");
-  const siteTitle = data.site.siteMetadata.title
+function BlogIndex({ data }) {
   const posts = data.allMarkdownRemark.edges
 
   const Div = styled.div`
@@ -60,14 +57,12 @@ function BlogIndex({ data, location }) {
 
   const ReadTime = styled.div`
       font-size: 15px;
-      margin: 3px 5px;
+      margin: 3px 0;
       color: gray;  
     `
 
   return (
-    <ThemeProvider theme={{ mode }}>
-      <Layout location={location} toggleLight={() => mode === "light" ? toggleLight("dark") : toggleLight("light")}
-              title={siteTitle} mode={mode}>
+        <>
         <SEO title="All posts"/>
         <PostsMain>
           {posts.map(({ node }) => {
@@ -86,8 +81,7 @@ function BlogIndex({ data, location }) {
             </Div>)
           })}
         </PostsMain>
-      </Layout>
-    </ThemeProvider>
+      </>
   )
 }
 

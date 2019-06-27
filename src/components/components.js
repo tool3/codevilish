@@ -71,10 +71,82 @@ export const TagPage = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: column; 
+  flex-direction: column;    
 `
 export const Clock = styled(FaRegClock)`
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     margin-right: 5px;
 `
+
+export const H1 = styled.h1`
+      background-color: ${backgroundColor};
+      color: ${color};
+      font-size: 2.3rem;
+      text-align: center;
+      margin: 0;
+    `
+export const Div = styled.div`
+      background-color: ${backgroundColor};
+      color: ${color};
+      font-size: 20px;
+      line-height: 12px;
+      margin: 5px;
+      padding: 15px;
+      text-align: center;
+    `
+
+export const UL = styled.ul`
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    `
+
+export const Content = styled.div`
+       padding: 5px 20em;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       background-color: ${backgroundColor};
+       color: ${color};
+       
+       a { color: ${color}; fill: ${color} }
+       blockquote { color: ${color}; border-color: indianred }
+      
+          
+       @media only screen and (max-width: 600px) {
+        padding: 5px 1em;
+      }
+    `
+export const Footer = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    @media only screen and (max-width: 600px) {
+      padding: 5px 2em;
+    }
+    `
+export const Date = styled(Div)`
+       color: indianred;
+       padding: 5px;
+       font-size: 15px;
+       margin: 0; 
+    `
+
+export const ReadTime = styled.div`
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    color: gray;
+    `
+
+export const TitleHeader = styled.h1`
+  font-size: 3em;
+  text-align: center;
+  height: 2em;
+  font-family: "Montserrat", sans-serif;  
+  color: indianred;
+  `

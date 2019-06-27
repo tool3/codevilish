@@ -28,7 +28,7 @@ module.exports = {
       }, `gatsby-remark-copy-linked-files`, `gatsby-remark-smartypants`, {
         resolve: `gatsby-remark-prismjs`, options: { showLineNumbers: true },
       },
-        `gatsby-remark-reading-time`
+        `gatsby-remark-reading-time`,
       ],
     },
   }, `gatsby-transformer-sharp`, `gatsby-plugin-sharp`, {
@@ -53,5 +53,11 @@ module.exports = {
     resolve: "gatsby-plugin-tags", options: {
       templatePath: `${__dirname}/src/templates/tags.js`,
     },
-  }],
+  },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/layout.js`),
+      },
+    }],
 }

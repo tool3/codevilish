@@ -1,8 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
-import Header from "../components/header"
-import { StyledLink, TagLink, TagPage } from "../components/components"
+import { StyledLink, TagLink, TagPage, TitleHeader } from "../components/components"
 import styled from "styled-components"
 
 const Div = styled.div`
@@ -15,7 +14,7 @@ const Tags = ({ pageContext, data }) => {
   const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"} tagged with ${tag}`
 
   return (<TagPage>
-    <Header title={tagHeader}/>
+    <TitleHeader>{tagHeader}</TitleHeader>
     {edges.map(({ node }) => {
       const { slug } = node.fields
       const { title } = node.frontmatter

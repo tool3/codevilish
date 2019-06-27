@@ -48,6 +48,7 @@ const Bio = () => {
   const P = styled.p`
     margin-left: 5px;
     font-family: Merriweather, sans-serif;
+    color: #1e1e1e;
   `
 
   const SocialTray = styled.span`
@@ -58,7 +59,7 @@ const Bio = () => {
 
   const Gitlab = wrapIcon(FaGitlab, "#FCA326")
   const LinkedIn = wrapIcon(FaLinkedin, "#0077B5")
-  const Github = wrapIcon(FaGithub, "gray")
+  const Github = wrapIcon(FaGithub, "black")
   const Dev = wrapIcon(FaDev, "black");
 
   const { author, social } = data.site.siteMetadata
