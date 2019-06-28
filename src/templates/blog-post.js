@@ -7,26 +7,40 @@ import {
   Content,
   Date,
   Footer,
-  H1,
   ReadTime,
   StyledLink,
   Tag,
   TagWrapper,
   UL,
 } from "../components/components"
+import styled from "styled-components"
+
+const Title = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 17em;
+`
+
+const HeadTitle = styled.div`
+    font-size: 2.5em;
+    font-weight: 800;
+`
 
 const BlogPostTemplate = ({ pageContext, data }) => {
   const { previous, next } = pageContext
   const { frontmatter: { title, date, description, tags }, fields: { readingTime: { text } }, excerpt, html } = data.markdownRemark
 
   return (
-    <>
+    <div style={{ paddingTop: 15 }}>
       <SEO title={title} description={description || excerpt}/>
-      <H1>{title}</H1>
-      <Date><Clock/>{date}</Date>
-      <ReadTime>{text}</ReadTime>
+        <Title>
+        <HeadTitle>{title}</HeadTitle>
+        <Date><Clock/>{date}</Date>
+        <ReadTime>{text}</ReadTime>
+      </Title>
       <Content dangerouslySetInnerHTML={{ __html: html }}/>
-      <hr style={{ marginBottom: rhythm(1), backgroundColor: 'lightgray' }}/>
+      <hr style={{ marginBottom: rhythm(1), backgroundColor: "lightgray" }}/>
 
       <Footer>
         {tags &&
@@ -46,7 +60,8 @@ const BlogPostTemplate = ({ pageContext, data }) => {
           </StyledLink>)}
         </li>
       </UL>
-    </>)
+    </div>
+  )
 }
 
 export default BlogPostTemplate

@@ -106,8 +106,9 @@ export const UL = styled.ul`
     `
 
 export const Content = styled.div`
+      
        transition: all .2s ease-in-out;
-       padding: 5px 20em;
+       padding: 20px 17em;
        display: flex;
        flex-direction: column;
        justify-content: center;
@@ -131,14 +132,14 @@ export const Footer = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    
     @media only screen and (max-width: 600px) {
       padding: 5px 2em;
     }
     `
-export const Date = styled(Div)`
+export const Date = styled.div`
        transition: all .2s ease-in-out;
        color: indianred;
-       padding: 5px;
        font-size: 15px;
        margin: 0; 
     `

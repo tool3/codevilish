@@ -41,9 +41,9 @@ const Bio = () => {
 
   const Div = styled.div`
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     margin-top: 5px;
-    width: auto;
+    width: auto;  
   `
   const P = styled.p`
     margin-left: 5px;
@@ -65,7 +65,8 @@ const Bio = () => {
   const { author, social } = data.site.siteMetadata
   const LinkOut = ({href, children}) => <A href={href} target={'_blank'}>{children}</A>
 
-  return (<Div>
+  return (
+    <Div>
     <Image
       fixed={data.avatar.childImageSharp.fixed}
       alt={author}
