@@ -30,8 +30,8 @@ function BlogIndex({ data }) {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0 20em;
-       @media only screen and (max-width: 1200px) {
+      padding: 0 25em;
+       @media only screen and (max-width: 1300px) {
         padding: 5px 1em;
     }
     `

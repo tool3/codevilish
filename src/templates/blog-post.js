@@ -19,7 +19,7 @@ const Title = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0 20em;
+  padding: 0 25em;
    @media only screen and (max-width: 1200px) {
         padding: 5px 1em;
     }
