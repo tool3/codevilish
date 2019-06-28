@@ -9,6 +9,7 @@ function BlogIndex({ data }) {
   const posts = data.allMarkdownRemark.edges
 
   const Div = styled.div`
+      transition: all .2s ease-in-out;
       background-color: ${backgroundColor};
       color: ${color};
       padding: 5px;
@@ -20,6 +21,7 @@ function BlogIndex({ data }) {
       }
     `
   const Small = styled.small`
+      transition: all .2s ease-in-out;
       background-color: ${backgroundColor};
       color: indianred;
       font-size: 15px;
@@ -62,13 +64,14 @@ function BlogIndex({ data }) {
     `
 
   return (
-        <>
-        <SEO title="All posts"/>
-        <PostsMain>
-          {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug
-            const readTime = node.fields.readingTime.text
-            return (<Div key={node.fields.slug}>
+    <>
+      <SEO title="All posts"/>
+      <PostsMain>
+        {posts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug
+          const readTime = node.fields.readingTime.text
+          return (
+            <Div key={node.fields.slug}>
               <H3>
                 <HeaderLink to={node.fields.slug}>{title}</HeaderLink>
                 <Small>
@@ -78,10 +81,11 @@ function BlogIndex({ data }) {
               <ReadTime>{readTime}</ReadTime>
               <Preview
                 dangerouslySetInnerHTML={{ __html: node.frontmatter.description || node.excerpt }}/>
-            </Div>)
-          })}
-        </PostsMain>
-      </>
+            </Div>
+          )
+        })}
+      </PostsMain>
+    </>
   )
 }
 

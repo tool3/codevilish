@@ -7,7 +7,6 @@ import { backgroundColor, color } from "./styles"
 import { FaRegClock } from "react-icons/fa"
 
 export const A = styled.a`
-  //color: lightgray;
   &:visited {
    color: lightgray;
   }
@@ -22,6 +21,7 @@ export const StyledLink = styled(Link)`
   `
 
 export const Wrapper = styled.div`
+  transition: all .2s ease-in-out;
   display: flex;
   flex-direction: column;
   justify-content: space-between; 
@@ -80,6 +80,7 @@ export const Clock = styled(FaRegClock)`
 `
 
 export const H1 = styled.h1`
+      transition: all .2s ease-in-out;
       background-color: ${backgroundColor};
       color: ${color};
       font-size: 2.3rem;
@@ -105,6 +106,7 @@ export const UL = styled.ul`
     `
 
 export const Content = styled.div`
+       transition: all .2s ease-in-out;
        padding: 5px 20em;
        display: flex;
        flex-direction: column;
@@ -112,7 +114,11 @@ export const Content = styled.div`
        background-color: ${backgroundColor};
        color: ${color};
        
-       a { color: ${color}; fill: ${color} }
+       a {
+          transition: all .2s ease-in-out; 
+          color: ${color}; 
+          fill: ${color} 
+         }
        blockquote { color: ${color}; border-color: indianred }
       
           
@@ -130,6 +136,7 @@ export const Footer = styled.div`
     }
     `
 export const Date = styled(Div)`
+       transition: all .2s ease-in-out;
        color: indianred;
        padding: 5px;
        font-size: 15px;

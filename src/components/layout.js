@@ -37,10 +37,10 @@ const Mooon = styled(FaMoon)`
     height: 15px;
 `
 const Sun = styled(FaSun)`
-    width: 15px;
-    height: 15px;
+    width: 17px;
+    height: 17px;
     fill: #FCA326;
-`
+  `
 const IconWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -66,7 +66,7 @@ const Layout = (props) => {
             <div>
               <ThemeSwitch
                 onColor="#1e1e1e"
-                offColor="#fff"
+                offColor="#FDFDFD"
                 checked={state.checked}
                 handleDiameter={18}
                 height={24}

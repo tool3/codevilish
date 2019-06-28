@@ -1,8 +1,7 @@
 import React from "react"
 import { StyledLink } from "./components"
 import styled from "styled-components"
-// import Image from "gatsby-image"
-// import { graphql, useStaticQuery } from "gatsby"
+import { color } from "../components/styles"
 
 const H1 = styled.h1`    
       display: flex; 
@@ -13,45 +12,21 @@ const H1 = styled.h1`
       justify-content: center;
       align-items: center;
       font-family: "Montserrat", sans-serif;
-      background-color: indianred;
       width: 100%;
-`
-const HeaderTitle = styled(StyledLink)`
-  && { color: white;}
+      color: ${color}
 `
 
 const Imager = styled.div`
-  @font-face {
-    src: url('../../content/assets/font/Failed3dFilled-Regular.woff') format('woff');
-    src: url('../../content/assets/font/Failed-3d-Filled.ttf') format('ttf');
-    font-family: 'Failed 3d Filled';
-    font-style: normal;
-   }
-    font-family: 'Failed 3d Filled', 'merriweather', serif;
-    font-weight: 400;
-    color: #1e1e1e;
-    font-size: 1.5em;
+  font-family: "Montserrat", "Open Sans", sans-serif;
+  font-weight: bold;
 `
 
 const Header = ({ title }) => {
-  // const data = useStaticQuery(graphql`
-  //     query HeaderQuery {
-  //         avatar: file(absolutePath: { regex: "/header.png/" }) {
-  //             childImageSharp {
-  //                 fixed(width: 312, height: 110) {
-  //                     ...GatsbyImageSharpFixed
-  //                 }
-  //             }
-  //         }
-  //     }
-  // `)
-
   return (
     <H1>
-      <HeaderTitle to={`/`}>
-      {/*<Image fixed={data.avatar.childImageSharp.fixed}>Codenvoy</Image>*/}
-      <Imager>{title}</Imager>
-    </HeaderTitle>
+      <StyledLink to={`/`}>
+        <Imager>{title}</Imager>
+      </StyledLink>
     </H1>
   )
 }
