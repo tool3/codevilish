@@ -12,10 +12,10 @@ function BlogIndex({ data }) {
       transition: all .2s ease-in-out;
       background-color: ${backgroundColor};
       color: ${color};
-      padding: 5px;
+      padding: 5px 0;
       font-size: 15px;
-      margin: 10px;
-      width: 55em;
+      margin: 10px 0;
+      
       @media only screen and (max-width: 600px) {
         width: auto;
       }
@@ -33,6 +33,7 @@ function BlogIndex({ data }) {
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding: 0 17em;
     `
 
   const MiniClock = styled(Clock)`
@@ -63,10 +64,10 @@ function BlogIndex({ data }) {
       color: gray;  
     `
 
+
   return (
-    <>
+    <PostsMain>
       <SEO title="All posts"/>
-      <PostsMain>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           const readTime = node.fields.readingTime.text
@@ -84,8 +85,7 @@ function BlogIndex({ data }) {
             </Div>
           )
         })}
-      </PostsMain>
-    </>
+    </PostsMain>
   )
 }
 
