@@ -15,7 +15,7 @@ const Footer = styled.footer`
   width: 100%; 
   height: 8rem;
   
-   @media only screen and (max-width: 600px) {
+   @media only screen and (max-width: 1200px) {
      padding: 5px 2em;
     }
 `

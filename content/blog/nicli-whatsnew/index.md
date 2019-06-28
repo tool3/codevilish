@@ -2,6 +2,7 @@
 title: Whats new in nicli
 date: "2019-04-01T22:12:03.284Z"
 tags: ["bash", "javascript", "nicli"]
+description: find out what iv'e been up to 😈
 ---
 
 # 🔥 What’s new in `nicli` 🔥 

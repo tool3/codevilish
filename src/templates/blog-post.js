@@ -20,7 +20,7 @@ const Title = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding: 0 20em;
-   @media only screen and (max-width: 600px) {
+   @media only screen and (max-width: 1200px) {
         padding: 5px 1em;
     }
 `
@@ -28,6 +28,7 @@ const Title = styled.div`
 const HeadTitle = styled.div`
     font-size: 2.5em;
     font-weight: 800;
+    font-family: "Open Sans", sans-serif;
 `
 
 const BlogPostTemplate = ({ pageContext, data }) => {

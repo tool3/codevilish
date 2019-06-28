@@ -123,7 +123,7 @@ export const Content = styled.div`
        blockquote { color: ${color}; border-color: indianred }
       
           
-       @media only screen and (max-width: 600px) {
+       @media only screen and (max-width: 1200px) {
         padding: 5px 1em;
       }
     `
@@ -133,7 +133,7 @@ export const Footer = styled.div`
     flex-direction: column;
     align-items: center;
     
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 1200px) {
       padding: 5px 2em;
     }
     `
@@ -142,13 +142,15 @@ export const Date = styled.div`
        color: indianred;
        font-size: 15px;
        margin: 0; 
+       width: auto;
     `
 
 export const ReadTime = styled.div`
     display: flex;
     justify-content: center;
     font-size: 15px;
-    color: gray;
+    color: ${color};
+    opacity: 0.7;
     `
 
 export const TitleHeader = styled.h1`

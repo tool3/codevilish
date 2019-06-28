@@ -14,11 +14,8 @@ function BlogIndex({ data }) {
       color: ${color};
       padding: 5px 0;
       font-size: 15px;
-      margin: 10px 0;
-      
-      @media only screen and (max-width: 600px) {
-        width: auto;
-      }
+      margin: 10px 0; 
+      width: 100%;
     `
   const Small = styled.small`
       transition: all .2s ease-in-out;
@@ -34,7 +31,7 @@ function BlogIndex({ data }) {
       flex-direction: column;
       align-items: center;
       padding: 0 20em;
-       @media only screen and (max-width: 600px) {
+       @media only screen and (max-width: 1200px) {
         padding: 5px 1em;
     }
     `
@@ -57,8 +54,9 @@ function BlogIndex({ data }) {
       font-size: 1.5rem;
     `
   const Preview = styled.div`
-      font-size: 20px;
+      font-size: 18px;
       width: auto;
+      font-family: Merriweather, sans-serif;
     `
 
   const ReadTime = styled.div`

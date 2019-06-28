@@ -36,7 +36,7 @@ const Bio = () => {
       filter: none;
       }
       
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 1200px) {
       fill: ${color};
     }
     `

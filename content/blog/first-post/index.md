@@ -2,6 +2,7 @@
 title: First Post
 date: "2015-06-01T22:12:03.284Z"
 tags: ["bash", "javascript"]
+description: an introductory course
 ---
 ## 🚀 Quick start
 
