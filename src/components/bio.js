@@ -10,7 +10,7 @@ const Bio = () => {
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
-          fixed(width: 50, height: 50) {
+          fixed(width: 80, height: 80) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -29,6 +29,8 @@ const Bio = () => {
   `)
 
   const wrapIcon = (icon, color) => styled(icon)`
+    width: 25px;
+    height: 25px;
       &:hover { 
       fill: ${color};
       filter: none;
@@ -45,10 +47,15 @@ const Bio = () => {
     margin-top: 5px;
     width: auto;  
   `
-  const P = styled.p`
+  const P = styled.div`
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     margin-left: 5px;
-    font-family: Merriweather, sans-serif;
+    font-family: "Montserrat", "Open Sans", sans-serif;
     color: #1e1e1e;
+    font-weight: 500;
+    font-size: 1.5em;
   `
 
   const SocialTray = styled.span`
@@ -72,8 +79,7 @@ const Bio = () => {
       alt={author}
       imgStyle={{ borderRadius: `50%` }}/>
     <P>
-      {author}
-      <br/>
+      <div>{author}</div>
       <SocialTray>
         <LinkOut href={`https://gitlab.com/${social.gitlab}`}>
           <Gitlab/>
