@@ -20,6 +20,11 @@ const HeaderWrapper = styled.div`
   align-items: center;
   height: 4.5em;
   padding: 0 20em;
+  
+    @media only screen and (max-width: 600px) {
+        padding: 5px 1em;
+    }
+  
 `
 
 

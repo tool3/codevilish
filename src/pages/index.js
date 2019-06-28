@@ -34,6 +34,9 @@ function BlogIndex({ data }) {
       flex-direction: column;
       align-items: center;
       padding: 0 20em;
+       @media only screen and (max-width: 600px) {
+        padding: 5px 1em;
+    }
     `
 
   const MiniClock = styled(Clock)`
