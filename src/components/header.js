@@ -35,7 +35,7 @@ const Imager = styled.div`
 
 
 const ThemeSwitch = styled(Switch)`
-    height: 22px;
+    height: 25px;
     width: auto;
     border: 1px solid #1e1e1e;
     .react-switch-bg {
@@ -44,19 +44,19 @@ const ThemeSwitch = styled(Switch)`
 `
 
 const Mooon = styled(FaMoon)`
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
 `
 const Sun = styled(FaSun)`
-    width: 17px;
-    height: 17px;
+    width: 16px;
+    height: 16px;
     fill: #FCA326;
   `
 const IconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 99%;
 `
 
 const Header = ({ title, checked, setState, mode }) => {
@@ -71,8 +71,8 @@ const Header = ({ title, checked, setState, mode }) => {
         onColor="#1e1e1e"
         offColor="#FDFDFD"
         checked={checked}
-        handleDiameter={18}
-        height={20}
+        handleDiameter={19}
+        height={23}
         width={43}
         offHandleColor="#1e1e1e"
         activeBoxShadow="0px 0px 2px 3px indianred"
