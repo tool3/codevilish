@@ -108,7 +108,7 @@ export const UL = styled.ul`
 export const Content = styled.div`
       
        transition: all .2s ease-in-out;
-       padding: 20px 17em;
+       padding: 20px 20em;
        display: flex;
        flex-direction: column;
        justify-content: center;

@@ -33,7 +33,7 @@ function BlogIndex({ data }) {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0 17em;
+      padding: 0 20em;
     `
 
   const MiniClock = styled(Clock)`

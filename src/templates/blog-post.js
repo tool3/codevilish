@@ -19,7 +19,7 @@ const Title = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0 17em;
+  padding: 0 20em;
 `
 
 const HeadTitle = styled.div`

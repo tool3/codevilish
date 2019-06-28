@@ -19,7 +19,7 @@ const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 4.5em;
-  padding: 0 17em;
+  padding: 0 20em;
 `
 
 

@@ -49,13 +49,13 @@ const Bio = () => {
   `
   const P = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: column;
     margin-left: 5px;
     font-family: "Montserrat", "Open Sans", sans-serif;
     color: #1e1e1e;
     font-weight: 500;
-    font-size: 1.5em;
+    font-size: 1.3em;
   `
 
   const SocialTray = styled.span`
