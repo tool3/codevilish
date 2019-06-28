@@ -17,7 +17,11 @@ module.exports = {
     },
   }, {
     resolve: `gatsby-transformer-remark`, options: {
-      plugins: [{ resolve: "gatsby-remark-autolink-headers" }, {
+      plugins: ["gatsby-remark-code-titles", {
+        resolve: `gatsby-remark-prismjs`,
+        options: { showLineNumbers: true, show_names: true , copy: true},
+        plugins: 'prismjs/plugins/show-language/prism-show-language'
+      }, { resolve: "gatsby-remark-autolink-headers" }, {
         resolve: `gatsby-remark-images`, options: {
           maxWidth: 590,
         },
@@ -25,9 +29,7 @@ module.exports = {
         resolve: `gatsby-remark-responsive-iframe`, options: {
           wrapperStyle: `margin-bottom: 1.0725rem`,
         },
-      }, `gatsby-remark-copy-linked-files`, `gatsby-remark-smartypants`, {
-        resolve: `gatsby-remark-prismjs`, options: { showLineNumbers: true },
-      },
+      }, `gatsby-remark-copy-linked-files`, `gatsby-remark-smartypants`,
         `gatsby-remark-reading-time`,
       ],
     },

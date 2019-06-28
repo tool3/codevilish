@@ -26,6 +26,13 @@ you are right.
 const cool = ({data}) => {
  return data.cool;
 }
+
+const a = bn;
+b = ds;
+```
+
+```js:title=example-file.js
+alert('how cool is this!');
 ```
 
 ![Chinese Salty Egg](./salty_egg.jpg)
