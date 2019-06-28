@@ -15,7 +15,7 @@ const H1 = styled.h1`
 
 const HeaderWrapper = styled.div`
   display: flex;
-  border-bottom: 2px dotted lightgray;
+  //border-bottom: 2px dotted lightgray;
   justify-content: space-between;
   align-items: center;
   height: 4.5em;

@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+// import Image from "gatsby-image"
 import { FaGitlab, FaGithub, FaLinkedin, FaDev } from "react-icons/fa"
 import { A } from "./components"
 import styled from "styled-components"
@@ -74,10 +74,10 @@ const Bio = () => {
 
   return (
     <Div>
-    <Image
-      fixed={data.avatar.childImageSharp.fixed}
-      alt={author}
-      imgStyle={{ borderRadius: `50%` }}/>
+    {/*<Image*/}
+    {/*  fixed={data.avatar.childImageSharp.fixed}*/}
+    {/*  alt={author}*/}
+    {/*  imgStyle={{ borderRadius: `50%` }}/>*/}
     <P>
       <div>{author}</div>
       <SocialTray>
