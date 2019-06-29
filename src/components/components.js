@@ -39,6 +39,8 @@ export const Tag = styled.div`
       font-size: 15px;
       line-height: 12px;
       margin: 5px;
+      width: fit-content;
+      
       &:hover:before {
         content: "#";
       }
@@ -109,7 +111,7 @@ export const UL = styled.ul`
 
 export const Content = styled.div`
        transition: all .2s ease-in-out;
-       padding: 20px 25em;
+       padding: 20px 30em;
        display: flex;
        flex-direction: column;
        justify-content: center;
@@ -157,7 +159,7 @@ export const ReadTime = styled.div`
 export const TitleHeader = styled.h1`
   font-size: 3em;
   text-align: center;
-  height: 2em;
-  font-family: "Montserrat", sans-serif;  
+  font-family: Montserrat, sans-serif;  
   color: indianred;
+  font-weight: 800;
   `

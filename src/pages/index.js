@@ -31,7 +31,8 @@ function BlogIndex({ data }) {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0 25em;
+      padding: 0 30em;
+      height: 80vh;
        @media only screen and (max-width: 1300px) {
         padding: 5px 1em;
     }
@@ -50,7 +51,7 @@ function BlogIndex({ data }) {
 
   const HeaderLink = styled(StyledLink)`
       font-size: 1.5rem;
-      font-weight: 600;
+      font-weight: 800;
     `
   const Preview = styled.div`
       font-size: 15px;

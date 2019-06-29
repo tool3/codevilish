@@ -29,8 +29,8 @@ const Bio = () => {
   `)
 
   const wrapIcon = (icon, color) => styled(icon)`
-    width: 25px;
-    height: 25px;
+    width: 18px;
+    height: 18px;
       &:hover { 
       fill: ${color};
       filter: none;
@@ -52,16 +52,20 @@ const Bio = () => {
     justify-content: space-around;
     flex-direction: column;
     margin-left: 5px;
-    font-family: "Montserrat", "Open Sans", sans-serif;
     color: #1e1e1e;
     font-weight: 500;
-    font-size: 1.3em;
+    font-size: 16px;
   `
 
   const SocialTray = styled.span`
     display: flex;
     justify-content: space-around;
     padding-top: 6px;
+  `
+
+  const Author = styled.div`
+    font-family: Montserrat, sans-serif;
+    font-size: 17px;
   `
 
   const Gitlab = wrapIcon(FaGitlab, "#FCA326")
@@ -79,7 +83,7 @@ const Bio = () => {
     {/*  alt={author}*/}
     {/*  imgStyle={{ borderRadius: `50%` }}/>*/}
     <P>
-      <div>{author}</div>
+      <Author>{author}</Author>
       <SocialTray>
         <LinkOut href={`https://gitlab.com/${social.gitlab}`}>
           <Gitlab/>

@@ -4,6 +4,7 @@ import styled, { ThemeProvider } from "styled-components"
 import Bio from "./bio"
 import Header from "./header"
 import { ContextProviderComponent } from "./context"
+import { FooterSVG } from "./svg/Footer"
 
 const Footer = styled.footer`
   display: flex;
@@ -14,6 +15,13 @@ const Footer = styled.footer`
   background-color: indianred; 
   width: 100%; 
   height: 5rem;
+    
+  
+  &:before {
+    content: "";
+    height: 25px;
+    border-radius: 80%;
+  }
   
    @media only screen and (max-width: 1200px) {
      padding: 5px 2em;
@@ -36,6 +44,7 @@ const Layout = (props) => {
                   checked={state.checked}/>
           <div>{children}</div>
           <Footer>
+            {/*<FooterSVG />*/}
             <Bio/>
           </Footer>
         </Wrapper>

@@ -2,11 +2,13 @@ import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import { StyledLink, TagLink, TagPage, TitleHeader } from "../components/components"
+import { color } from "../components/styles"
 import styled from "styled-components"
 
 const Div = styled.div`
   background: #1e1e1e;
   border: 1px dotted gray;
+  box-shadow: 0 0 2px 0 ${color}
 `
 
 const TagView = styled.div`
@@ -14,6 +16,13 @@ const TagView = styled.div`
   flex-direction: column;
   justify-content: space-between;
   min-height: 4em;
+`
+
+const Button = styled.button`
+    border: 1px solid gray;
+    box-shadow: 0 0 2px 0 ${color};
+    background: transparent;
+    border-radius: 10%;
 `
 
 const Tags = ({ pageContext, data }) => {
@@ -25,13 +34,15 @@ const Tags = ({ pageContext, data }) => {
     <TagPage>
       <TitleHeader>{tagHeader}</TitleHeader>
       <TagView>
-      {edges.map(({ node }) => {
-        const { slug } = node.fields
-        const { title } = node.frontmatter
-        return (<Div key={slug}><TagLink to={slug}>{title}</TagLink></Div>)
-      })}
+        {edges.map(({ node }) => {
+          const { slug } = node.fields
+          const { title } = node.frontmatter
+          return (<Div key={slug}><TagLink to={slug}>{title}</TagLink></Div>)
+        })}
       </TagView>
-      <StyledLink to="/tags">All tags</StyledLink>
+      <Button>
+        <StyledLink to="/tags">All tags</StyledLink>
+      </Button>
     </TagPage>
   )
 }

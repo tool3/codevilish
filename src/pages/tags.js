@@ -7,9 +7,9 @@ import { Tag, TagLink, TagPage, TitleHeader } from "../components/components"
 import styled from 'styled-components';
 
 const Tags = styled.div`
-      display: inline-block;
-      width: auto;
-  
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 `
 
 const TagsPage = ({ data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } } }) => {
@@ -17,7 +17,7 @@ const TagsPage = ({ data: { allMarkdownRemark: { group }, site: { siteMetadata: 
 
       <TagPage>
         <Helmet title={title}/>
-        <TitleHeader>Tags</TitleHeader>
+        <TitleHeader>#Tags</TitleHeader>
         <Tags>
         {group.map(tag => (
           <Tag key={tag.fieldValue}>
