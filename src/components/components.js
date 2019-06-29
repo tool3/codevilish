@@ -54,6 +54,7 @@ export const TagWrapper = styled.div`
 export const TagLink = styled(Link)`
   color: white;
   padding: 2px;
+  width: auto;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
   
@@ -71,7 +72,8 @@ export const TagPage = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: column;    
+  flex-direction: column;
+  height: 80vh;  
 `
 export const Clock = styled(FaRegClock)`
     width: 10px;

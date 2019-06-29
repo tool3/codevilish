@@ -1,7 +1,7 @@
 import Typography from "typography"
 import Irving from "typography-theme-irving"
 
-Irving.baseFontSize = '18px'
+Irving.baseFontSize = '16px'
 Irving.bodyFontFamily = ['Open Sans']
 Irving.headerFontFamily = ['Merriweather']
 Irving.headerWeight= '500'

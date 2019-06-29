@@ -14,16 +14,17 @@ function BlogIndex({ data }) {
       color: ${color};
       padding: 5px 0;
       font-size: 15px;
-      margin: 10px 0; 
-      width: 100%;
+      margin: 1.25em 0; 
+      width: 100%;  
     `
   const Small = styled.small`
       transition: all .2s ease-in-out;
       background-color: ${backgroundColor};
       color: indianred;
-      font-size: 15px;
+      font-size: 80%;
       line-height: 25px;
-      display: inline-block;
+      display: flex;
+     align-items: center;
     `
 
   const PostsMain = styled.div`
@@ -39,29 +40,27 @@ function BlogIndex({ data }) {
   const MiniClock = styled(Clock)`
       width: 11px;
       height: 11px;
-      margin: 0;
+      margin-right: 5px;
     `
 
   const H3 = styled.h3`
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       text-decoration: none;
       margin-bottom: 0;
     `
 
   const HeaderLink = styled(StyledLink)`
       font-size: 1.5rem;
+      font-weight: 600;
     `
   const Preview = styled.div`
-      font-size: 18px;
+      font-size: 15px;
       width: auto;
       font-family: Merriweather, sans-serif;
+      
     `
 
   const ReadTime = styled.div`
-      font-size: 15px;
-      margin: 3px 0;
+      margin: 0 5px;
       color: gray;  
     `
 
@@ -76,11 +75,11 @@ function BlogIndex({ data }) {
             <Div key={node.fields.slug}>
               <H3>
                 <HeaderLink to={node.fields.slug}>{title}</HeaderLink>
-                <Small>
-                  <MiniClock/> {node.frontmatter.date}
-                </Small>
               </H3>
-              <ReadTime>{readTime}</ReadTime>
+              <Small>
+                <MiniClock/> {node.frontmatter.date}
+                <ReadTime>{readTime}</ReadTime>
+              </Small>
               <Preview
                 dangerouslySetInnerHTML={{ __html: node.frontmatter.description || node.excerpt }}/>
             </Div>

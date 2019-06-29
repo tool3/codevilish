@@ -28,7 +28,7 @@ const Title = styled.div`
 const HeadTitle = styled.div`
     font-size: 2.5em;
     font-weight: 800;
-    font-family: "Open Sans", sans-serif;
+    font-family: Merriweather, sans-serif;
 `
 
 const BlogPostTemplate = ({ pageContext, data }) => {
