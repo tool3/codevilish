@@ -33,7 +33,7 @@ const Layout = (props) => {
     mode: "light",
     checked: false,
   })
-  const [title] = useState("Codenvoy")
+  const [title] = useState("Codevilish")
 
   const { children } = props
   return (
