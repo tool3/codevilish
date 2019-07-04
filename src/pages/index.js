@@ -31,7 +31,7 @@ function BlogIndex({ data }) {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0 30em;
+      padding: 0 35em;
       height: 80vh;
        @media only screen and (max-width: 1300px) {
         padding: 5px 1em;

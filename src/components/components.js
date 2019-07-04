@@ -105,13 +105,13 @@ export const UL = styled.ul`
     display: flex;
     justify-content: space-around;
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 20px 0;
     `
 
 export const Content = styled.div`
        transition: all .2s ease-in-out;
-       padding: 20px 30em;
+       padding: 20px 35em;
        display: flex;
        flex-direction: column;
        justify-content: center;

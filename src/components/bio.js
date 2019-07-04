@@ -31,9 +31,12 @@ const Bio = () => {
   const wrapIcon = (icon, color) => styled(icon)`
     width: 20px;
     height: 20px;
+    transition: .2s ease-in-out;
+    
       &:hover { 
       fill: ${color};
       filter: none;
+      transform: scale(1.4);
       }
       
     @media only screen and (max-width: 1024px) {
@@ -44,7 +47,6 @@ const Bio = () => {
   const Div = styled.div`
     display: flex;
     justify-content: center;
-    margin-top: 5px;
     width: auto;  
     position:absolute;
     
@@ -56,7 +58,6 @@ const Bio = () => {
     display: flex;
     justify-content: space-around;
     flex-direction: column;
-    margin-left: 5px;
     font-weight: 500;
     font-size: 16px;
     color: ${backgroundColor};
@@ -81,6 +82,7 @@ const Bio = () => {
     font-size: 17px;
     text-align: center;
     color: ${color};
+    margin-bottom: 10px;
     
     @media only screen and (max-width: 1024px) {
       font-size: 15px;
@@ -91,8 +93,8 @@ const Bio = () => {
 
   const Gitlab = wrapIcon(FaGitlab, "#FCA326")
   const LinkedIn = wrapIcon(FaLinkedin, "#0077B5")
-  const Github = wrapIcon(FaGithub, "black")
-  const Dev = wrapIcon(FaDev, "black");
+  const Github = wrapIcon(FaGithub, color)
+  const Dev = wrapIcon(FaDev, color);
 
   const { author, social } = data.site.siteMetadata
   const LinkOut = ({href, children}) => <A href={href} target={'_blank'}>{children}</A>

@@ -12,12 +12,6 @@ const Footer = styled.footer`
   align-items: center;
   padding: 5px 10em;   
   height: 5rem;
-  
-   @media only screen and (max-width: 1024px) {
-     height: unset;
-     padding: unset;
-     
-    }
 `
 
 const Layout = (props) => {
