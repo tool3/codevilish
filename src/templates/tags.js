@@ -7,8 +7,8 @@ import styled from "styled-components"
 
 const Div = styled.div`
   background: #1e1e1e;
-  border: 1px dotted gray;
-  box-shadow: 0 0 2px 0 ${color}
+  margin-bottom: 15px;
+  
 `
 
 const TagView = styled.div`
@@ -27,8 +27,14 @@ const Button = styled.button`
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
-  const { edges, totalCount } = data.allMarkdownRemark
-  const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"} tagged with ${tag}`
+  const { edges } = data.allMarkdownRemark
+  const tagHeader = `#${tag}`
+
+  const Preview = styled.div`
+      font-size: 15px;
+      width: auto;
+      font-family: Merriweather, sans-serif;
+    `
 
   return (
     <TagPage>
@@ -37,7 +43,13 @@ const Tags = ({ pageContext, data }) => {
         {edges.map(({ node }) => {
           const { slug } = node.fields
           const { title } = node.frontmatter
-          return (<Div key={slug}><TagLink to={slug}>{title}</TagLink></Div>)
+          return (
+            <Div key={slug}>
+              <h1><TagLink to={slug}>{title}</TagLink></h1>
+              <Preview
+                dangerouslySetInnerHTML={{  __html: node.frontmatter.description || node.excerpt }}/>
+            </Div>
+          )
         })}
       </TagView>
       <Button>
@@ -81,7 +93,8 @@ export const pageQuery = graphql`
                         slug
                     }
                     frontmatter {
-                        title
+                        title,
+                        description
                     }
                 }
             }

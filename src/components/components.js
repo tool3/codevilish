@@ -111,7 +111,9 @@ export const UL = styled.ul`
 
 export const Content = styled.div`
        transition: all .2s ease-in-out;
-       padding: 20px 35em;
+       margin-right: auto;
+       margin-left: auto;
+       max-width: 42rem;
        display: flex;
        flex-direction: column;
        justify-content: center;

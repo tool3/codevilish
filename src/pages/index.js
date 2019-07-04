@@ -31,8 +31,11 @@ function BlogIndex({ data }) {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0 35em;
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 42rem;
       height: 80vh;
+      
        @media only screen and (max-width: 1300px) {
         padding: 5px 1em;
     }
@@ -57,7 +60,6 @@ function BlogIndex({ data }) {
       font-size: 15px;
       width: auto;
       font-family: Merriweather, sans-serif;
-      
     `
 
   const ReadTime = styled.div`
