@@ -25,7 +25,7 @@ const Layout = (props) => {
     mode: "dark",
     checked: false,
   })
-  const [title] = useState("Codenvoy")
+  const [title] = useState("Codevilish")
 
   const { children } = props
   return (

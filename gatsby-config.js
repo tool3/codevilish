@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Codenvoy`,
+    title: `Codevilish`,
     author: `Tal Hayut`,
-    description: `The Codenvoy blog.`,
-    siteUrl: `https://codenvoy.netlify.com`,
+    description: `The Codevilish blog.`,
+    siteUrl: `https://codevilish.netlify.com`,
     social: {
       gitlab: "talhayut", github: "tool3", linkedIn: "talhayut",
     },
@@ -39,8 +39,8 @@ module.exports = {
     },
   }, `gatsby-plugin-feed`, {
     resolve: `gatsby-plugin-manifest`, options: {
-      name: `Codenvoy`,
-      short_name: `Codenvoy`,
+      name: `Codevilish`,
+      short_name: `Codevilish`,
       start_url: `/`,
       background_color: `#ffffff`,
       theme_color: `#CD5B5C`,
