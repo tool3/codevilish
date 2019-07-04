@@ -4,33 +4,25 @@ import styled, { ThemeProvider } from "styled-components"
 import Bio from "./bio"
 import Header from "./header"
 import { ContextProviderComponent } from "./context"
-import { FooterSVG } from "./svg/Footer"
 
 const Footer = styled.footer`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5px 10em;
-  background-color: indianred; 
-  width: 100%; 
+  padding: 5px 10em;   
   height: 5rem;
-    
   
-  &:before {
-    content: "";
-    height: 25px;
-    border-radius: 80%;
-  }
-  
-   @media only screen and (max-width: 1200px) {
-     padding: 5px 2em;
+   @media only screen and (max-width: 1024px) {
+     height: unset;
+     padding: unset;
+     
     }
 `
 
 const Layout = (props) => {
   const [state, setState] = useState({
-    mode: "light",
+    mode: "dark",
     checked: false,
   })
   const [title] = useState("Codenvoy")
@@ -44,7 +36,6 @@ const Layout = (props) => {
                   checked={state.checked}/>
           <div>{children}</div>
           <Footer>
-            {/*<FooterSVG />*/}
             <Bio/>
           </Footer>
         </Wrapper>

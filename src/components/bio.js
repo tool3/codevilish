@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-// import Image from "gatsby-image"
+import { backgroundColor, color } from '../components/styles'
 import { FaGitlab, FaGithub, FaLinkedin, FaDev } from "react-icons/fa"
 import { A } from "./components"
 import styled from "styled-components"
@@ -29,14 +29,14 @@ const Bio = () => {
   `)
 
   const wrapIcon = (icon, color) => styled(icon)`
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
       &:hover { 
       fill: ${color};
       filter: none;
       }
       
-    @media only screen and (max-width: 1200px) {
+    @media only screen and (max-width: 1024px) {
       fill: ${color};
     }
     `
@@ -46,26 +46,47 @@ const Bio = () => {
     justify-content: center;
     margin-top: 5px;
     width: auto;  
+    position:absolute;
+    
+    @media only screen and (max-width: 1024px) {
+      margin: 10px;
+    }
   `
   const P = styled.div`
     display: flex;
     justify-content: space-around;
     flex-direction: column;
     margin-left: 5px;
-    color: #1e1e1e;
     font-weight: 500;
     font-size: 16px;
+    color: ${backgroundColor};
+    
+    @media only screen and (max-width: 1024px) {
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      width: 55vw;
+    }
   `
 
   const SocialTray = styled.span`
     display: flex;
     justify-content: space-around;
     padding-top: 6px;
+    width: 30vw;
   `
 
   const Author = styled.div`
     font-family: Montserrat, sans-serif;
     font-size: 17px;
+    text-align: center;
+    color: ${color};
+    
+    @media only screen and (max-width: 1024px) {
+      font-size: 15px;
+      margin: 0;
+    }
+    
   `
 
   const Gitlab = wrapIcon(FaGitlab, "#FCA326")

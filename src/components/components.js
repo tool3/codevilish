@@ -126,7 +126,7 @@ export const Content = styled.div`
        blockquote { color: ${color}; border-color: indianred }
       
           
-       @media only screen and (max-width: 1200px) {
+       @media only screen and (max-width: 1024px) {
         padding: 5px 1em;
       }
     `
@@ -136,7 +136,7 @@ export const Footer = styled.div`
     flex-direction: column;
     align-items: center;
     
-    @media only screen and (max-width: 1200px) {
+    @media only screen and (max-width: 1024px) {
       padding: 5px 2em;
     }
     `

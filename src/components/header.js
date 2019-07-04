@@ -37,6 +37,7 @@ const ThemeSwitch = styled(Switch)`
     height: 25px;
     width: auto;
     border: 1px solid #1e1e1e;
+    
     .react-switch-bg {
       border: 1px solid #fff;
     }
@@ -45,6 +46,7 @@ const ThemeSwitch = styled(Switch)`
 const Mooon = styled(FaMoon)`
     width: 14px;
     height: 14px;
+    fill: white;
 `
 const Sun = styled(FaSun)`
     width: 16px;
