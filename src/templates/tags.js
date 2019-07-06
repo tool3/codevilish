@@ -2,7 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import { StyledLink, TagLink, TagPage, TitleHeader } from "../components/components"
-import { color } from "../components/styles"
 import styled from "styled-components"
 
 const Div = styled.div`
@@ -10,6 +9,7 @@ const Div = styled.div`
   margin: 10px 0;
   padding: 15px;
   box-shadow: 0 0 2px .5px indianred;
+  transition: .2s ease-in-out;
   &:hover {
     transform: scale(1.1);
     box-shadow: 0 0 5px .5px indianred;

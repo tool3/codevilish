@@ -31,8 +31,8 @@ const Bio = () => {
   const wrapIcon = (icon, color) => styled(icon)`
     width: 20px;
     height: 20px;
-    transition: .2s ease;
-    
+    transition: .2s ease-in-out;
+      
       &:hover { 
       fill: ${color};
       filter: saturate(100%);
