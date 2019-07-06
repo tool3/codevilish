@@ -19,13 +19,7 @@ const Title = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 42rem;
-  
-   @media only screen and (max-width: 1024px) {
-        padding: 5px 1em;
-    }
+  margin-bottom: 5%;
 `
 
 const HeadTitle = styled.div`

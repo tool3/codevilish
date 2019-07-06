@@ -17,13 +17,7 @@ const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 4.5em;
-  padding: 5px 31.4em;
-  
-    @media only screen and (max-width: 1300px) {
-        padding: 5px 1em;
-    }
-  
+  height: 6em;
 `
 
 

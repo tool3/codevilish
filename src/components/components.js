@@ -28,6 +28,19 @@ export const Wrapper = styled.div`
   background-color: ${backgroundColor};
   color: ${color};
   min-height: 100vh;
+  padding: 0 31em;
+  
+  @media only screen and (max-width: 1400px) {
+        padding: 5px 11vw;
+  }
+  
+  @media only screen and (max-width: 450px) {
+        padding: 5px 4vw;
+    }
+    
+    @media only screen and (max-width: 320px) {
+        padding: 5px 1vw;
+    }    
   `
 
 export const Tag = styled.div`
@@ -111,9 +124,6 @@ export const UL = styled.ul`
 
 export const Content = styled.div`
        transition: all .2s ease-in-out;
-       margin-right: auto;
-       margin-left: auto;
-       max-width: 42rem;
        display: flex;
        flex-direction: column;
        justify-content: center;
@@ -125,12 +135,12 @@ export const Content = styled.div`
           color: ${color}; 
           fill: ${color} 
          }
-       blockquote { color: ${color}; border-color: indianred }
-      
-          
-       @media only screen and (max-width: 1024px) {
-        padding: 5px 1em;
+         
+       blockquote { 
+       color: ${color};
+       border-color: indianred 
       }
+          
     `
 export const Footer = styled.div`
     display: flex;

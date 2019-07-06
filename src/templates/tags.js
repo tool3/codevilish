@@ -7,8 +7,13 @@ import styled from "styled-components"
 
 const Div = styled.div`
   background: #1e1e1e;
-  margin-bottom: 15px;
-  
+  margin: 10px 0;
+  padding: 15px;
+  box-shadow: 0 0 2px .5px indianred;
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 5px .5px indianred;
+  }
 `
 
 const TagView = styled.div`
@@ -19,22 +24,28 @@ const TagView = styled.div`
 `
 
 const Button = styled.button`
-    border: 1px solid gray;
-    box-shadow: 0 0 2px 0 ${color};
+    border: 1px solid indianred;
+    box-shadow: 0 0 2px 0 indianred;
     background: transparent;
     border-radius: 10%;
+`
+
+const Preview = styled.div`
+      font-size: 15px;
+      width: auto;
+      font-family: Merriweather, sans-serif;
+      color: indianred;
+    `
+
+const Title = styled.h1`
+    font-size: 2em;
+    margin-bottom: 2%;
 `
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
   const { edges } = data.allMarkdownRemark
   const tagHeader = `#${tag}`
-
-  const Preview = styled.div`
-      font-size: 15px;
-      width: auto;
-      font-family: Merriweather, sans-serif;
-    `
 
   return (
     <TagPage>
@@ -45,7 +56,7 @@ const Tags = ({ pageContext, data }) => {
           const { title } = node.frontmatter
           return (
             <Div key={slug}>
-              <h1><TagLink to={slug}>{title}</TagLink></h1>
+              <Title><TagLink to={slug}>{title}</TagLink></Title>
               <Preview
                 dangerouslySetInnerHTML={{  __html: node.frontmatter.description || node.excerpt }}/>
             </Div>

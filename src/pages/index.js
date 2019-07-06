@@ -13,9 +13,9 @@ function BlogIndex({ data }) {
       background-color: ${backgroundColor};
       color: ${color};
       padding: 5px 0;
-      font-size: 15px;
-      margin: 1.25em 0; 
-      width: 100%;  
+      font-size: 15px; 
+      width: 100%;
+      margin: 2% 0;  
     `
   const Small = styled.small`
       transition: all .2s ease-in-out;
@@ -31,14 +31,7 @@ function BlogIndex({ data }) {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-right: auto;
-      margin-left: auto;
-      max-width: 42rem;
       height: 80vh;
-      
-       @media only screen and (max-width: 1300px) {
-        padding: 5px 1em;
-    }
     `
 
   const MiniClock = styled(Clock)`

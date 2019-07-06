@@ -9,9 +9,10 @@ const Footer = styled.footer`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 5px 10em;   
+  align-items: center; 
   height: 5rem;
+  
+  
 `
 
 const Layout = (props) => {
