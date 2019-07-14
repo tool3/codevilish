@@ -36,4 +36,15 @@ b = ds;
 alert('how cool is this!');
 ```
 
+```javascript
+
+const dylan = new Dog();
+
+dylan.trip();
+
+dylan.prototype.palm = () => {   
+    return dylan.rightPalm;
+}
+```
+
 ![Chinese Salty Egg](./salty_egg.jpg)

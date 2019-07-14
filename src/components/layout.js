@@ -10,7 +10,7 @@ const Footer = styled.footer`
   flex-direction: column;
   justify-content: center;
   align-items: center; 
-  height: 5rem;
+  height: 7rem;
   
   
 `

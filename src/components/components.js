@@ -67,19 +67,19 @@ export const TagWrapper = styled.div`
 
 
 export const TagLink = styled(Link)`
-  color: white;
+  color: ${color};
   padding: 2px;
   width: auto;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
   
   &:visited {
-    color: white;
+    color: ${color};
   }
   
   &:hover {
     text-decoration: none;
-    color: white;
+    color: ${color};
    }
 `
 
@@ -116,7 +116,7 @@ export const Div = styled.div`
 
 export const UL = styled.ul`
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     list-style: none;
     margin: 0;
     padding: 20px 0;
@@ -141,6 +141,15 @@ export const Content = styled.div`
        border-color: indianred 
       }
           
+       .gatsby-highlight-code-line {
+          background-color: #1e1e1e;
+          display: block;
+          margin-right: -1em;
+          margin-left: -1em;
+          padding-right: 1em;
+          padding-left: 0.75em;
+          border-left: 0.25em solid indianred;
+        }
     `
 export const Footer = styled.div`
     display: flex;

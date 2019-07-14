@@ -2,10 +2,12 @@ import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import { StyledLink, TagLink, TagPage, TitleHeader } from "../components/components"
+import { color, backgroundColor } from "../components/styles"
 import styled from "styled-components"
 
 const Div = styled.div`
-  background: #1e1e1e;
+  background: ${backgroundColor};
+  color: ${color};
   margin: 10px 0;
   padding: 15px;
   box-shadow: 0 0 2px .5px indianred;
@@ -40,6 +42,7 @@ const Preview = styled.div`
 const Title = styled.h1`
     font-size: 2em;
     margin-bottom: 2%;
+    color: ${color};
 `
 
 const Tags = ({ pageContext, data }) => {

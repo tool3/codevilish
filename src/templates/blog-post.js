@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
@@ -14,6 +14,7 @@ import {
   UL,
 } from "../components/components"
 import styled from "styled-components"
+import GatsbyImage from "gatsby-image"
 
 const Title = styled.div`
   display: flex;
@@ -28,14 +29,35 @@ const HeadTitle = styled.div`
     font-family: Merriweather, sans-serif;
 `
 
+const SocialLike = styled.span`
+  //border: 1px solid gray;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  &:hover {
+    cursor: pointer;
+  } 
+  `
+
+const SocialLikes = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2em; 
+  align-content: center;
+`
+
 const BlogPostTemplate = ({ pageContext, data }) => {
   const { previous, next } = pageContext
   const { frontmatter: { title, date, description, tags }, fields: { readingTime: { text } }, excerpt, html } = data.markdownRemark
+  const [hornCount, setHornCount] = useState(0);
+  const [unicornCount, setUniCount] = useState(0);
+  const [clapsCount, setClapsCount] = useState(0);
 
   return (
     <div style={{ paddingTop: 15 }}>
       <SEO title={title} description={description || excerpt}/>
-        <Title>
+      <Title>
         <HeadTitle>{title}</HeadTitle>
         <Date><Clock/>{date}</Date>
         <ReadTime>{text}</ReadTime>
@@ -49,6 +71,21 @@ const BlogPostTemplate = ({ pageContext, data }) => {
           <StyledLink key={index} to={`/tags/${tag}`}>
             <Tag>{tag}</Tag></StyledLink>))}</TagWrapper>}
       </Footer>
+
+      <SocialLikes>
+        <SocialLike onClick={() => setHornCount(hornCount+ 1)}>
+          <GatsbyImage fixed={data.horns.childImageSharp.fixed} alt="horns"/>
+          <div>{hornCount}</div>
+        </SocialLike>
+        <SocialLike onClick={() => setUniCount(unicornCount+ 1)}>
+          <GatsbyImage fixed={data.unicorn.childImageSharp.fixed} alt="horns"/>
+          <div>{unicornCount}</div>
+        </SocialLike>
+        <SocialLike onClick={() => setClapsCount(clapsCount + 1)}>
+          <GatsbyImage fixed={data.sunglasses.childImageSharp.fixed} alt="horns"/>
+          <div>{clapsCount}</div>
+        </SocialLike>
+      </SocialLikes>
 
       <UL>
         <li>{previous && (<StyledLink to={previous.fields.slug} rel="prev">
@@ -69,6 +106,27 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
     query BlogPostBySlug($slug: String!) {
+        horns: file(absolutePath: { regex: "/horns.png/" }) {
+            childImageSharp {
+                fixed(width: 40, height: 40) {
+                    ...GatsbyImageSharpFixed
+                }
+            }
+        }
+        unicorn: file(absolutePath: { regex: "/unicorn.png/" }) {
+            childImageSharp {
+                fixed(width: 40, height: 40) {
+                    ...GatsbyImageSharpFixed
+                }
+            }
+        }
+        sunglasses: file(absolutePath: { regex: "/sunglasses.png/" }) {
+            childImageSharp {
+                fixed(width: 40, height: 40) {
+                    ...GatsbyImageSharpFixed
+                }
+            }
+        }
         site {
             siteMetadata {
                 title
