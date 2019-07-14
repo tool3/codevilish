@@ -1,31 +1,31 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { backgroundColor, color } from '../components/styles'
+import { backgroundColor, color } from "../components/styles"
 import { FaGitlab, FaGithub, FaLinkedin, FaDev } from "react-icons/fa"
 import { A } from "./components"
 import styled from "styled-components"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
-    query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-        childImageSharp {
-          fixed(width: 80, height: 80) {
-            ...GatsbyImageSharpFixed
+      query BioQuery {
+          avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+              childImageSharp {
+                  fixed(width: 80, height: 80) {
+                      ...GatsbyImageSharpFixed
+                  }
+              }
           }
-        }
-      }
-      site {
-        siteMetadata {
-          author,
-          social {
-            gitlab,
-            github,
-            linkedIn
+          site {
+              siteMetadata {
+                  author,
+                  social {
+                      gitlab,
+                      github,
+                      linkedIn
+                  }
+              }
           }
-        }
       }
-    }
   `)
 
   const wrapIcon = (icon, color) => styled(icon)`
@@ -94,38 +94,34 @@ const Bio = () => {
   const Gitlab = wrapIcon(FaGitlab, "#FCA326")
   const LinkedIn = wrapIcon(FaLinkedin, "#0077B5")
   const Github = wrapIcon(FaGithub, color)
-  const Dev = wrapIcon(FaDev, color);
+  const Dev = wrapIcon(FaDev, color)
 
   const { author, social } = data.site.siteMetadata
-  const LinkOut = ({href, children}) => <A href={href} target={'_blank'}>{children}</A>
+  const LinkOut = ({ href, children }) => <A href={href} target={"_blank"}>{children}</A>
 
   return (
     <Div>
-    {/*<Image*/}
-    {/*  fixed={data.avatar.childImageSharp.fixed}*/}
-    {/*  alt={author}*/}
-    {/*  imgStyle={{ borderRadius: `50%` }}/>*/}
-    <P>
-      <Author>{author}</Author>
-      <SocialTray>
-        <LinkOut href={`https://gitlab.com/${social.gitlab}`}>
-          <Gitlab/>
-        </LinkOut>
+      <P>
+        <Author>{author}</Author>
+        <SocialTray>
+          <LinkOut href={`https://gitlab.com/${social.gitlab}`}>
+            <Gitlab/>
+          </LinkOut>
 
-        <LinkOut href={`https://github.com/${social.github}`}>
-          <Github/>
-        </LinkOut>
+          <LinkOut href={`https://github.com/${social.github}`}>
+            <Github/>
+          </LinkOut>
 
-        <LinkOut href={`https://linkedin.com/in/${social.linkedIn}`}>
-          <LinkedIn/>
-        </LinkOut>
+          <LinkOut href={`https://linkedin.com/in/${social.linkedIn}`}>
+            <LinkedIn/>
+          </LinkOut>
 
-        <LinkOut href={`https://dev.to/${social.github}`}>
-          <Dev/>
-        </LinkOut>
-      </SocialTray>
-    </P>
-  </Div>)
+          <LinkOut href={`https://dev.to/${social.github}`}>
+            <Dev/>
+          </LinkOut>
+        </SocialTray>
+      </P>
+    </Div>)
 }
 
 export default Bio
