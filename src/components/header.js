@@ -51,7 +51,7 @@ const IconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 99%;
+  height: 100%;
 `
 
 const Header = ({ title, checked, setState, mode }) => {

@@ -31,7 +31,7 @@ function BlogIndex({ data }) {
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: 80vh;
+      height: 75vh;
     `
 
   const MiniClock = styled(Clock)`

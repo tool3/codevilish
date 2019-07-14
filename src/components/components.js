@@ -30,6 +30,12 @@ export const Wrapper = styled.div`
   min-height: 100vh;
   padding: 0 31em;
   
+  &::-webkit-scrollbar {
+    background-color: black;
+    color: red;
+  }
+  
+  
   @media only screen and (max-width: 1400px) {
         padding: 5px 11vw;
   }

@@ -11,8 +11,6 @@ const Footer = styled.footer`
   justify-content: center;
   align-items: center; 
   height: 7rem;
-  
-  
 `
 
 const Layout = (props) => {
