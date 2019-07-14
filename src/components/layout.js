@@ -4,6 +4,7 @@ import styled, { ThemeProvider } from "styled-components"
 import Bio from "./bio"
 import Header from "./header"
 import { ContextProviderComponent } from "./context"
+import { GlobalStyle } from "../../gatsby-browser"
 
 const Footer = styled.footer`
   display: flex;
@@ -25,6 +26,7 @@ const Layout = (props) => {
     <ContextProviderComponent>
       <ThemeProvider theme={{ mode: state.mode }}>
         <Wrapper>
+          <GlobalStyle />
           <Header title={title} mode={state.mode} setState={setState}
                   checked={state.checked}/>
           <div>{children}</div>
