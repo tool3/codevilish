@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Scroll, Wrapper } from "./components"
+import { Wrapper } from "./components"
 import styled, { ThemeProvider } from "styled-components"
 import Bio from "./bio"
 import Header from "./header"
@@ -25,7 +25,6 @@ const Layout = (props) => {
     <ContextProviderComponent>
       <ThemeProvider theme={{ mode: state.mode }}>
         <Wrapper>
-          {/*<Scroll />*/}
           <Header title={title} mode={state.mode} setState={setState}
                   checked={state.checked}/>
           <div>{children}</div>
