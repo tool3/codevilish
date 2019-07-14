@@ -8,7 +8,9 @@ import { FaRegClock } from "react-icons/fa"
 import { createGlobalStyle } from "styled-components"
 
 export const Scroll = createGlobalStyle`
+    && {
     body {
+    
       ::-webkit-scrollbar {
         width: .5em;
       }
@@ -20,6 +22,8 @@ export const Scroll = createGlobalStyle`
         border-radius: 15px;
       }
      }
+     }
+    
 `
 
 export const A = styled.a`

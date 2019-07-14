@@ -38,14 +38,14 @@ const ThemeSwitch = styled(Switch)`
 `
 
 const Mooon = styled(FaMoon)`
-    width: 14px;
-    height: 14px;
+    height: 70%;
+    width: 70%;
     fill: white;
 `
 const Sun = styled(FaSun)`
-    width: 16px;
-    height: 16px;
     fill: #FCA326;
+    height: 75%;
+    width: 75%;
   `
 const IconWrapper = styled.div`
   display: flex;

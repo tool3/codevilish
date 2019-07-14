@@ -25,7 +25,7 @@ const Layout = (props) => {
     <ContextProviderComponent>
       <ThemeProvider theme={{ mode: state.mode }}>
         <Wrapper>
-          <Scroll />
+          {/*<Scroll />*/}
           <Header title={title} mode={state.mode} setState={setState}
                   checked={state.checked}/>
           <div>{children}</div>
