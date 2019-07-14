@@ -1,5 +1,4 @@
-// custom typefaces
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components"
 
 import "prismjs/plugins/line-highlight/prism-line-highlight.css"
 import "prismjs/themes/prism-tomorrow.css"
@@ -14,10 +13,6 @@ export const GlobalStyle = createGlobalStyle`
       }
       ::-webkit-scrollbar-track {
         background-color: #1e1e1e;
-      }
-      ::-webkit-scrollbar-thumb {
-        background-color: indianred;
-        border-radius: 10px;
       }
      }
   `
