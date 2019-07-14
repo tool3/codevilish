@@ -1,10 +1,9 @@
 import React, { useState } from "react"
-import { Wrapper } from "./components"
+import { Scroll, Wrapper } from "./components"
 import styled, { ThemeProvider } from "styled-components"
 import Bio from "./bio"
 import Header from "./header"
 import { ContextProviderComponent } from "./context"
-import { GlobalStyle } from "../../gatsby-browser"
 
 const Footer = styled.footer`
   display: flex;
@@ -26,7 +25,7 @@ const Layout = (props) => {
     <ContextProviderComponent>
       <ThemeProvider theme={{ mode: state.mode }}>
         <Wrapper>
-          <GlobalStyle />
+          <Scroll />
           <Header title={title} mode={state.mode} setState={setState}
                   checked={state.checked}/>
           <div>{children}</div>

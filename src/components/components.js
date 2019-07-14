@@ -5,6 +5,22 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 import { backgroundColor, color } from "./styles"
 import { FaRegClock } from "react-icons/fa"
+import {createGlobalStyle} from 'styled-components';
+
+export const Scroll = createGlobalStyle`
+    body {
+      ::-webkit-scrollbar {
+        width: .5em;
+      }
+      ::-webkit-scrollbar-track {
+        background-color: #1e1e1e;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: indianred;
+        border-radius: 15px;
+      }
+     }
+`
 
 export const A = styled.a`
   &:visited {
