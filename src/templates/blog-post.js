@@ -52,6 +52,9 @@ const Li = styled.li`
   border: 1px solid ${color};
   border-radius: 20px;
   padding: 0 5px;
+  @media only screen and (max-width: 1700px) {
+        font-size: 0.75em;
+  }
 `
 
 const BlogPostTemplate = ({ pageContext, data }) => {
