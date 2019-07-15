@@ -15,6 +15,7 @@ import {
 } from "../components/components"
 import styled from "styled-components"
 import GatsbyImage from "gatsby-image"
+import { color } from "../components/styles"
 
 const Title = styled.div`
   display: flex;
@@ -47,12 +48,18 @@ const SocialLikes = styled.div`
   align-content: center;
 `
 
+const Li = styled.li`
+  border: 1px solid ${color};
+  border-radius: 20px;
+  padding: 0 5px;
+`
+
 const BlogPostTemplate = ({ pageContext, data }) => {
   const { previous, next } = pageContext
   const { frontmatter: { title, date, description, tags }, fields: { readingTime: { text } }, excerpt, html } = data.markdownRemark
-  const [hornCount, setHornCount] = useState(0);
-  const [unicornCount, setUniCount] = useState(0);
-  const [clapsCount, setClapsCount] = useState(0);
+  const [hornCount, setHornCount] = useState(0)
+  const [unicornCount, setUniCount] = useState(0)
+  const [clapsCount, setClapsCount] = useState(0)
 
   return (
     <div style={{ paddingTop: 15 }}>
@@ -73,11 +80,11 @@ const BlogPostTemplate = ({ pageContext, data }) => {
       </Footer>
 
       <SocialLikes>
-        <SocialLike onClick={() => setHornCount(hornCount+ 1)}>
+        <SocialLike onClick={() => setHornCount(hornCount + 1)}>
           <GatsbyImage fixed={data.horns.childImageSharp.fixed} alt="horns"/>
           <div>{hornCount}</div>
         </SocialLike>
-        <SocialLike onClick={() => setUniCount(unicornCount+ 1)}>
+        <SocialLike onClick={() => setUniCount(unicornCount + 1)}>
           <GatsbyImage fixed={data.unicorn.childImageSharp.fixed} alt="horns"/>
           <div>{unicornCount}</div>
         </SocialLike>
@@ -88,15 +95,17 @@ const BlogPostTemplate = ({ pageContext, data }) => {
       </SocialLikes>
 
       <UL>
-        <li>{previous && (<StyledLink to={previous.fields.slug} rel="prev">
-          ← {previous.frontmatter.title}
-        </StyledLink>)}
-        </li>
-        <li>
-          {next && (<StyledLink to={next.fields.slug} rel="next">
+        {previous && <Li>
+          <StyledLink to={previous.fields.slug} rel="prev">
+            ← {previous.frontmatter.title}
+          </StyledLink>
+        </Li>}
+
+        {next && <Li>
+          <StyledLink to={next.fields.slug} rel="next">
             {next.frontmatter.title} →
-          </StyledLink>)}
-        </li>
+          </StyledLink>
+        </Li>}
       </UL>
     </div>
   )
