@@ -56,8 +56,8 @@ export const Wrapper = styled.div`
       text-transform: uppercase;
       text-align: right;
       position: relative;
-      top: 30px;
-      right: 15px;
+      top: 2.5em;
+      right: 1em;
     }
   `
 
