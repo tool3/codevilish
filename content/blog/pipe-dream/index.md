@@ -121,7 +121,7 @@ It is associated with a stage called release (which we will soon define at the t
 
 
 So our `.gitlab-ci.yml` file now looks like this:
-```yaml
+```yaml:title=.gitlab-ci.yml
 image: node@10
 
 stages:

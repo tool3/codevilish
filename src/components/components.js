@@ -41,6 +41,24 @@ export const Wrapper = styled.div`
     @media only screen and (max-width: 320px) {
         padding: 5px 1vw;
     }    
+    
+    .gatsby-highlight {
+      text-align: right;
+    }
+    
+    div[data-language]:before {
+      content: attr(data-language);
+      background: indianred;
+      color: ${color};
+      border-radius: 0 0 4px 4px;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      text-transform: uppercase;
+      text-align: right;
+      position: relative;
+      top: 30px;
+      right: 15px;
+    }
   `
 
 export const Tag = styled.div`
