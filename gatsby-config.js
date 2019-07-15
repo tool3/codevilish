@@ -24,7 +24,12 @@ module.exports = {
         resolve: `gatsby-remark-prismjs`,
         options: { showLineNumbers: true, showNames: true, copy: true },
         plugins: "prismjs/plugins/show-language/prism-show-language",
-      }, { resolve: "gatsby-remark-autolink-headers" }, {
+      }, {
+        resolve: "gatsby-remark-autolink-headers",
+        options: {
+          className: "anchor_head",
+        },
+      }, {
         resolve: `gatsby-remark-images`,
         options: {
           maxWidth: 590,
