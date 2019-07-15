@@ -3,7 +3,7 @@ import { StyledLink } from "./components"
 import styled from "styled-components"
 import { color } from "../components/styles"
 import Switch from "react-switch"
-import { FaMoon, FaSun } from "react-icons/fa"
+import { FaMoon, FaSun, FaFirstOrder, FaJediOrder } from "react-icons/fa"
 
 const H1 = styled.h1`    
       font-size: 3em;
@@ -28,24 +28,21 @@ const Imager = styled.div`
 
 
 const ThemeSwitch = styled(Switch)`
-    height: 25px;
+    height: auto;
     width: auto;
-    border: 1px solid #1e1e1e;
     
-    .react-switch-bg {
-      border: 1px solid #fff;
-    }
 `
 
-const Mooon = styled(FaMoon)`
-    height: 70%;
-    width: 70%;
-    fill: white;
+const Mooon = styled(FaFirstOrder)`
+    fill: red;
+    width: 100%;
+    height: 100%;
+    padding: 3px 0;
 `
-const Sun = styled(FaSun)`
+const Sun = styled(FaJediOrder)`
     fill: #FCA326;
-    height: 75%;
-    width: 75%;
+    width: 100%;
+    height: 100%;
   `
 const IconWrapper = styled.div`
   display: flex;
@@ -66,9 +63,9 @@ const Header = ({ title, checked, setState, mode }) => {
         onColor="#1e1e1e"
         offColor="#FDFDFD"
         checked={checked}
-        handleDiameter={19}
-        height={23}
-        width={43}
+        handleDiameter={33}
+        height={35}
+        width={70}
         offHandleColor="#1e1e1e"
         activeBoxShadow="0px 0px 2px 3px indianred"
         checkedIcon={<IconWrapper><Mooon/></IconWrapper>}
