@@ -46,20 +46,23 @@ export const Wrapper = styled.div`
     .gatsby-highlight {
       text-align: right;
       height: 100%;
+      pre {
+        border-radius: 3px;
+      }
     }
     
     div[data-language]:before {
       content: attr(data-language);
       background: indianred;
       color: ${color};
-      border-radius: 0 0 4px 4px;
+      border-radius: 0 0 0 4px;
       font-size: 0.75rem;
       padding: 0.25rem 0.5rem;
       text-transform: uppercase;
       text-align: right;
       position: relative;
       top: 2.5em;
-      right: 1em;
+      
     }
   `
 
