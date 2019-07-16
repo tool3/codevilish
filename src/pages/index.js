@@ -56,7 +56,7 @@ function BlogIndex({ data }) {
 
   const ReadTime = styled.div`
       margin: 0 5px;
-      color: gray;  
+      color: ${color};  
     `
 
 

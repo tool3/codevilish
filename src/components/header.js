@@ -67,6 +67,7 @@ const Header = ({ title, checked, setState, mode }) => {
         width={70}
         className={"mode_switch"}
         activeBoxShadow="0px 0px 2px 3px indianred"
+        aria-label={"switch"}
         checkedIcon={<IconWrapper><Mooon/></IconWrapper>}
         uncheckedIcon={<IconWrapper><Sun/></IconWrapper>}
         onChange={() => mode === "light" ? setState({
