@@ -12,16 +12,18 @@ function BlogIndex({ data }) {
       transition: all .2s ease-in-out;
       background-color: ${backgroundColor};
       color: ${color};
-      padding: 5px 0;
+      padding: 1em;
       font-size: 15px; 
       width: 100%;
-      margin: 2% 0;  
+      margin: 1em 0;  
+      height: auto;
+      
     `
   const Small = styled.small`
       transition: all .2s ease-in-out;
       background-color: ${backgroundColor};
       color: indianred;
-      font-size: 80%;
+      font-size: 1em;
       line-height: 25px;
       display: flex;
      align-items: center;
@@ -34,8 +36,8 @@ function BlogIndex({ data }) {
     `
 
   const MiniClock = styled(Clock)`
-      width: 11px;
-      height: 11px;
+      width: 1em;
+      height: 1em;
       margin-right: 5px;
     `
 
@@ -57,6 +59,7 @@ function BlogIndex({ data }) {
   const ReadTime = styled.div`
       margin: 0 5px;
       color: ${color};  
+      opacity: 0.7;
     `
 
 
