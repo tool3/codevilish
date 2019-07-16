@@ -69,7 +69,7 @@ const ShareIcon = (icon, color) => styled(icon)`
 `
 
 const WhatsApp = ShareIcon(FaWhatsapp, "#44C04E")
-const Email = ShareIcon(FaEnvelope, "white")
+const Email = ShareIcon(FaEnvelope, "gray")
 const Facebook = ShareIcon(FaFacebook, "#2F88CC")
 const Telegram = ShareIcon(FaTelegram, "#41B7FF")
 const Twitter = ShareIcon(FaTwitter, "#3AA1F2")
