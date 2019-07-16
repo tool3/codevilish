@@ -4,7 +4,6 @@ date: "2019-07-06T22:12:03.284Z"
 tags: ["gitlab", "ci_cd"]
 description: Getting started with gitlab ci/cd 🦊🏗
 ---
-Pipe dream
 # Building a Gitlab CI/CD pipeline
 Let’s say you have created an npm package and shared it with the world. awesome. 
 You soon realise that for every little patch you create, you need to go through several steps to publish your changes.

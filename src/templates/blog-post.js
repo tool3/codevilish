@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
@@ -14,34 +14,38 @@ import {
   UL,
 } from "../components/components"
 import styled from "styled-components"
-import GatsbyImage from "gatsby-image"
 import { color } from "../components/styles"
+import {
+  WhatsappShareButton,
+  EmailShareButton,
+  TelegramShareButton,
+  FacebookShareButton,
+  TwitterShareButton,
+} from "react-share"
+import {
+  FaWhatsapp,
+  FaEnvelope,
+  FaTelegram,
+  FaFacebook,
+  FaTwitter,
+} from "react-icons/fa"
+
 
 const Title = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 5%;
 `
 
 const HeadTitle = styled.div`
-    font-size: 2.5em;
+    font-size: 3em;
     font-weight: 800;
     font-family: Merriweather, sans-serif;
+    text-align: center;
 `
 
-const SocialLike = styled.span`
-  //border: 1px solid gray;
-  border-radius: 100%;
-  width: 60px;
-  height: 60px;
-  text-align: center;
-  &:hover {
-    cursor: pointer;
-  } 
-  `
-
-const SocialLikes = styled.div`
+const SocialShare = styled.div`
   display: flex;
   justify-content: space-evenly;
   margin: 2em; 
@@ -57,12 +61,23 @@ const Li = styled.li`
   }
 `
 
-const BlogPostTemplate = ({ pageContext, data }) => {
+const ShareIcon = (icon, color) => styled(icon)`
+    width: 3em;
+    height: 3em;
+    fill: ${color};
+    cursor: pointer;
+`
+
+const WhatsApp = ShareIcon(FaWhatsapp, "#44C04E")
+const Email = ShareIcon(FaEnvelope, "white")
+const Facebook = ShareIcon(FaFacebook, "#2F88CC")
+const Telegram = ShareIcon(FaTelegram, "#41B7FF")
+const Twitter = ShareIcon(FaTwitter, "#3AA1F2")
+
+
+const BlogPostTemplate = ({ pageContext, data, location }) => {
   const { previous, next } = pageContext
   const { frontmatter: { title, date, description, tags }, fields: { readingTime: { text } }, excerpt, html } = data.markdownRemark
-  const [hornCount, setHornCount] = useState(0)
-  const [unicornCount, setUniCount] = useState(0)
-  const [clapsCount, setClapsCount] = useState(0)
 
   return (
     <div style={{ paddingTop: 15 }}>
@@ -82,20 +97,23 @@ const BlogPostTemplate = ({ pageContext, data }) => {
             <Tag>{tag}</Tag></StyledLink>))}</TagWrapper>}
       </Footer>
 
-      <SocialLikes>
-        <SocialLike onClick={() => setHornCount(hornCount + 1)}>
-          <GatsbyImage fixed={data.horns.childImageSharp.fixed} alt="horns"/>
-          <div>{hornCount}</div>
-        </SocialLike>
-        <SocialLike onClick={() => setUniCount(unicornCount + 1)}>
-          <GatsbyImage fixed={data.unicorn.childImageSharp.fixed} alt="horns"/>
-          <div>{unicornCount}</div>
-        </SocialLike>
-        <SocialLike onClick={() => setClapsCount(clapsCount + 1)}>
-          <GatsbyImage fixed={data.sunglasses.childImageSharp.fixed} alt="horns"/>
-          <div>{clapsCount}</div>
-        </SocialLike>
-      </SocialLikes>
+      <SocialShare>
+        <WhatsappShareButton url={location.href}>
+          <WhatsApp/>
+        </WhatsappShareButton>
+        <EmailShareButton url={location.href}>
+          <Email/>
+        </EmailShareButton>
+        <TelegramShareButton url={location.href}>
+          <Telegram/>
+        </TelegramShareButton>
+        <FacebookShareButton url={location.href}>
+          <Facebook/>
+        </FacebookShareButton>
+        <TwitterShareButton url={location.href}>
+          <Twitter/>
+        </TwitterShareButton>
+      </SocialShare>
 
       <UL>
         {previous && <Li>
@@ -118,27 +136,6 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
     query BlogPostBySlug($slug: String!) {
-        horns: file(absolutePath: { regex: "/horns.png/" }) {
-            childImageSharp {
-                fixed(width: 40, height: 40) {
-                    ...GatsbyImageSharpFixed
-                }
-            }
-        }
-        unicorn: file(absolutePath: { regex: "/unicorn.png/" }) {
-            childImageSharp {
-                fixed(width: 40, height: 40) {
-                    ...GatsbyImageSharpFixed
-                }
-            }
-        }
-        sunglasses: file(absolutePath: { regex: "/sunglasses.png/" }) {
-            childImageSharp {
-                fixed(width: 40, height: 40) {
-                    ...GatsbyImageSharpFixed
-                }
-            }
-        }
         site {
             siteMetadata {
                 title

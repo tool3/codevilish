@@ -113,28 +113,10 @@ export const TagPage = styled.div`
   height: 80vh;  
 `
 export const Clock = styled(FaRegClock)`
-    width: 10px;
-    height: 10px;
+    width: 1em;
+    height: .8em;
     margin-right: 5px;
 `
-
-export const H1 = styled.h1`
-      transition: all .2s ease-in-out;
-      background-color: ${backgroundColor};
-      color: ${color};
-      font-size: 2.3rem;
-      text-align: center;
-      margin: 0;
-    `
-export const Div = styled.div`
-      background-color: ${backgroundColor};
-      color: ${color};
-      font-size: 20px;
-      line-height: 12px;
-      margin: 5px;
-      padding: 15px;
-      text-align: center;
-    `
 
 export const UL = styled.ul`
     display: flex;
@@ -186,7 +168,7 @@ export const Footer = styled.div`
 export const Date = styled.div`
        transition: all .2s ease-in-out;
        color: indianred;
-       font-size: 15px;
+       font-size: 1.5em;
        margin: 0; 
        width: auto;
     `
@@ -194,7 +176,7 @@ export const Date = styled.div`
 export const ReadTime = styled.div`
     display: flex;
     justify-content: center;
-    font-size: 15px;
+    font-size: 1.2em;
     color: ${color};
     opacity: 0.7;
     `
