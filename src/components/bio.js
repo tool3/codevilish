@@ -31,12 +31,10 @@ const Bio = () => {
   const wrapIcon = (icon, color) => styled(icon)`
     width: 20px;
     height: 20px;
-    transition: .2s ease-in-out;
+    transition: .3s ease-in-out;
       
       &:hover { 
-      fill: ${color};
-      filter: saturate(100%);
-      transform: scale(1.4);
+        fill: ${color};
       }
       
     @media only screen and (max-width: 1024px) {
