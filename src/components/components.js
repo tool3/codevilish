@@ -28,6 +28,7 @@ export const Wrapper = styled.div`
   background-color: ${backgroundColor};
   color: ${color};
   min-height: 100vh;
+  width: 100vw;
   padding: 0 34em;
   
   @media only screen and (max-width: 1400px) {
@@ -44,6 +45,7 @@ export const Wrapper = styled.div`
     
     .gatsby-highlight {
       text-align: right;
+      height: 100%;
     }
     
     div[data-language]:before {

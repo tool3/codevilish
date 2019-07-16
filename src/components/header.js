@@ -3,7 +3,7 @@ import { StyledLink } from "./components"
 import styled from "styled-components"
 import { color } from "../components/styles"
 import Switch from "react-switch"
-import { FaMoon, FaSun, FaFirstOrder, FaJediOrder } from "react-icons/fa"
+import { FaFirstOrder, FaJediOrder } from "react-icons/fa"
 
 const H1 = styled.h1`    
       font-size: 3em;
