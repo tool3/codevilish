@@ -12,7 +12,7 @@ function BlogIndex({ data }) {
       transition: all .2s ease-in-out;
       background-color: ${backgroundColor};
       color: ${color};
-      padding: 1em;
+      padding: 1em 0;
       font-size: 15px; 
       width: 100%;
       margin: 1em 0;  
