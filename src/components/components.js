@@ -54,7 +54,7 @@ export const Wrapper = styled.div`
       content: attr(data-language);
       background: indianred;
       color: ${color};
-      border-radius: 0 0 0 4px;
+      border-radius: 0 4px 0 4px;
       font-size: 0.75rem;
       padding: 0.25rem 0.5rem;
       text-transform: uppercase;
