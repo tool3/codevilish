@@ -27,8 +27,8 @@ export const Wrapper = styled.div`
   justify-content: space-between; 
   background-color: ${backgroundColor};
   color: ${color};
-  min-height: 100vh;
-  padding: 0 37em;
+  min-height: 100%;
+  padding: 0 33em;
   
   @media only screen and (max-width: 1400px) {
         padding: 5px 11vw;
