@@ -42,6 +42,12 @@ export const Wrapper = styled.div`
         padding: 5px 1vw;
     }    
     
+    && {
+    &::selection {
+      background: indianred;
+      }      
+    }
+    
     .gatsby-highlight {
       text-align: right;
       height: 100%;

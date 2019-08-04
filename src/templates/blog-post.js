@@ -62,17 +62,22 @@ const Li = styled.li`
 `
 
 const ShareIcon = (icon, color) => styled(icon)`
-    width: 3em;
-    height: 3em;
+    width: 2em;
+    height: 2em;
     fill: ${color};
     cursor: pointer;
+    transition: .2s ease;
+    &:hover {
+      fill: indianred;
+      transform: scale(1.1);
+    }
 `
 
-const WhatsApp = ShareIcon(FaWhatsapp, "#44C04E")
-const Email = ShareIcon(FaEnvelope, "gray")
-const Facebook = ShareIcon(FaFacebook, "#2F88CC")
-const Telegram = ShareIcon(FaTelegram, "#41B7FF")
-const Twitter = ShareIcon(FaTwitter, "#3AA1F2")
+const WhatsApp = ShareIcon(FaWhatsapp, color)
+const Email = ShareIcon(FaEnvelope, color)
+const Facebook = ShareIcon(FaFacebook, color)
+const Telegram = ShareIcon(FaTelegram, color)
+const Twitter = ShareIcon(FaTwitter, color)
 
 
 const BlogPostTemplate = ({ pageContext, data, location }) => {

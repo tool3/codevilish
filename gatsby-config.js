@@ -22,8 +22,7 @@ module.exports = {
     options: {
       plugins: ["gatsby-remark-code-titles", {
         resolve: `gatsby-remark-prismjs`,
-        options: { showLineNumbers: true, showNames: true, copy: true },
-        plugins: "prismjs/plugins/show-language/prism-show-language",
+        options: { showLineNumbers: true, copy: true }
       }, {
         resolve: "gatsby-remark-autolink-headers",
         options: {
