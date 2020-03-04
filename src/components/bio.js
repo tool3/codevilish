@@ -17,10 +17,10 @@ const Bio = () => {
           }
           site {
               siteMetadata {
-                  author,
+                  author
                   social {
-                      gitlab,
-                      github,
+                      gitlab
+                      github
                       linkedIn
                   }
               }
@@ -31,23 +31,23 @@ const Bio = () => {
   const wrapIcon = (icon, color) => styled(icon)`
     width: 20px;
     height: 20px;
-    transition: .2s ease;
-      
-      &:hover { 
-        fill: ${color};
-      }
-      
+    transition: 0.2s ease;
+
+    &:hover {
+      fill: ${color};
+    }
+
     @media only screen and (max-width: 1024px) {
       fill: ${color};
     }
-    `
+  `
 
   const Div = styled.div`
     display: flex;
     justify-content: center;
-    width: auto;  
-    position:absolute;
-    
+    width: auto;
+    position: absolute;
+
     @media only screen and (max-width: 1024px) {
       margin: 10px;
     }
@@ -59,7 +59,7 @@ const Bio = () => {
     font-weight: 500;
     font-size: 16px;
     color: ${backgroundColor};
-    
+
     @media only screen and (max-width: 1024px) {
       flex-direction: row;
       justify-content: space-around;
@@ -81,21 +81,24 @@ const Bio = () => {
     text-align: center;
     color: ${color};
     margin-bottom: 10px;
-    
+
     @media only screen and (max-width: 1024px) {
       font-size: 15px;
       margin: 0;
     }
-    
   `
 
-  const Gitlab = wrapIcon(FaGitlab, "#FCA326")
+  const Gitlab = wrapIcon(FaGitlab, color)
   const LinkedIn = wrapIcon(FaLinkedin, "#0077B5")
   const Github = wrapIcon(FaGithub, color)
   const Dev = wrapIcon(FaDev, color)
 
   const { author, social } = data.site.siteMetadata
-  const LinkOut = ({ href, children }) => <A href={href} target={"_blank"}>{children}</A>
+  const LinkOut = ({ href, children }) => (
+    <A href={href} target={"_blank"}>
+      {children}
+    </A>
+  )
 
   return (
     <Div>
@@ -119,7 +122,8 @@ const Bio = () => {
           </LinkOut>
         </SocialTray>
       </P>
-    </Div>)
+    </Div>
+  )
 }
 
 export default Bio

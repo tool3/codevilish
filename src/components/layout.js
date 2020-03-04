@@ -9,11 +9,11 @@ const Footer = styled.footer`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   height: 7rem;
 `
 
-const Layout = (props) => {
+const Layout = props => {
   const [state, setState] = useState({
     mode: "dark",
     checked: false,
@@ -25,11 +25,15 @@ const Layout = (props) => {
     <ContextProviderComponent>
       <ThemeProvider theme={{ mode: state.mode }}>
         <Wrapper>
-          <Header title={title} mode={state.mode} setState={setState}
-                  checked={state.checked}/>
+          <Header
+            title={title}
+            mode={state.mode}
+            setState={setState}
+            checked={state.checked}
+          />
           <div>{children}</div>
           <Footer>
-            <Bio/>
+            <Bio />
           </Footer>
         </Wrapper>
       </ThemeProvider>

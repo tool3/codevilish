@@ -30,7 +30,6 @@ import {
   FaTwitter,
 } from "react-icons/fa"
 
-
 const Title = styled.div`
   display: flex;
   flex-direction: column;
@@ -39,16 +38,16 @@ const Title = styled.div`
 `
 
 const HeadTitle = styled.div`
-    font-size: 3em;
-    font-weight: 800;
-    font-family: Merriweather, sans-serif;
-    text-align: center;
+  font-size: 3em;
+  font-weight: 800;
+  font-family: Merriweather, sans-serif;
+  text-align: center;
 `
 
 const SocialShare = styled.div`
   display: flex;
   justify-content: space-evenly;
-  margin: 2em; 
+  margin: 2em;
   align-content: center;
 `
 
@@ -57,20 +56,20 @@ const Li = styled.li`
   border-radius: 20px;
   padding: 0 5px;
   @media only screen and (max-width: 1700px) {
-        font-size: 0.75em;
+    font-size: 0.75em;
   }
 `
 
 const ShareIcon = (icon, color) => styled(icon)`
-    width: 2em;
-    height: 2em;
-    fill: ${color};
-    cursor: pointer;
-    transition: .2s ease;
-    &:hover {
-      fill: indianred;
-      transform: scale(1.1);
-    }
+  width: 2em;
+  height: 2em;
+  fill: ${color};
+  cursor: pointer;
+  transition: 0.2s ease;
+  &:hover {
+    fill: indianred;
+    transform: scale(1.1);
+  }
 `
 
 const WhatsApp = ShareIcon(FaWhatsapp, color)
@@ -79,59 +78,77 @@ const Facebook = ShareIcon(FaFacebook, color)
 const Telegram = ShareIcon(FaTelegram, color)
 const Twitter = ShareIcon(FaTwitter, color)
 
-
 const BlogPostTemplate = ({ pageContext, data, location }) => {
   const { previous, next } = pageContext
-  const { frontmatter: { title, date, description, tags }, fields: { readingTime: { text } }, excerpt, html } = data.markdownRemark
+  const {
+    frontmatter: { title, date, description, tags },
+    fields: {
+      readingTime: { text },
+    },
+    excerpt,
+    html,
+  } = data.markdownRemark
 
   return (
     <div style={{ paddingTop: 15 }}>
-      <SEO title={title} description={description || excerpt}/>
+      <SEO title={title} description={description || excerpt} />
       <Title>
         <HeadTitle>{title}</HeadTitle>
-        <Date><Clock/>{date}</Date>
+        <Date>
+          <Clock />
+          {date}
+        </Date>
         <ReadTime>{text}</ReadTime>
       </Title>
-      <Content dangerouslySetInnerHTML={{ __html: html }}/>
-      <hr style={{ marginBottom: rhythm(1), backgroundColor: "lightgray" }}/>
+      <Content dangerouslySetInnerHTML={{ __html: html }} />
+      <hr style={{ marginBottom: rhythm(1), backgroundColor: "lightgray" }} />
 
       <Footer>
-        {tags &&
-        <TagWrapper>{tags.map((tag, index) => (
-          <StyledLink key={index} to={`/tags/${tag}`}>
-            <Tag>{tag}</Tag></StyledLink>))}</TagWrapper>}
+        {tags && (
+          <TagWrapper>
+            {tags.map((tag, index) => (
+              <StyledLink key={index} to={`/tags/${tag}`}>
+                <Tag>{tag}</Tag>
+              </StyledLink>
+            ))}
+          </TagWrapper>
+        )}
       </Footer>
 
       <SocialShare>
         <WhatsappShareButton url={location.href}>
-          <WhatsApp/>
+          <WhatsApp />
         </WhatsappShareButton>
         <EmailShareButton url={location.href}>
-          <Email/>
+          <Email />
         </EmailShareButton>
         <TelegramShareButton url={location.href}>
-          <Telegram/>
+          <Telegram />
         </TelegramShareButton>
         <FacebookShareButton url={location.href}>
-          <Facebook/>
+          <Facebook />
         </FacebookShareButton>
         <TwitterShareButton url={location.href}>
-          <Twitter/>
+          <Twitter />
         </TwitterShareButton>
       </SocialShare>
 
       <UL>
-        {previous && <Li>
-          <StyledLink to={previous.fields.slug} rel="prev">
-            ← {previous.frontmatter.title}
-          </StyledLink>
-        </Li>}
+        {previous && (
+          <Li>
+            <StyledLink to={previous.fields.slug} rel="prev">
+              ← {previous.frontmatter.title}
+            </StyledLink>
+          </Li>
+        )}
 
-        {next && <Li>
-          <StyledLink to={next.fields.slug} rel="next">
-            {next.frontmatter.title} →
-          </StyledLink>
-        </Li>}
+        {next && (
+          <Li>
+            <StyledLink to={next.fields.slug} rel="next">
+              {next.frontmatter.title} →
+            </StyledLink>
+          </Li>
+        )}
       </UL>
     </div>
   )
@@ -140,28 +157,28 @@ const BlogPostTemplate = ({ pageContext, data, location }) => {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-    query BlogPostBySlug($slug: String!) {
-        site {
-            siteMetadata {
-                title
-                author
-            }
-        }
-        markdownRemark(fields: { slug: { eq: $slug } }) {
-            id
-            excerpt(pruneLength: 160)
-            html
-            fields {
-                readingTime {
-                    text
-                }
-            }
-            frontmatter {
-                title
-                date(formatString: "MMMM DD, YYYY")
-                description
-                tags
-            }
-        }
+  query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+        author
+      }
     }
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      id
+      excerpt(pruneLength: 160)
+      html
+      fields {
+        readingTime {
+          text
+        }
+      }
+      frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+        description
+        tags
+      }
+    }
+  }
 `

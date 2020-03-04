@@ -1,7 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
-import { StyledLink, TagLink, TagPage, TitleHeader } from "../components/components"
+import {
+  StyledLink,
+  TagLink,
+  TagPage,
+  TitleHeader,
+} from "../components/components"
 import { color, backgroundColor } from "../components/styles"
 import styled from "styled-components"
 
@@ -10,11 +15,11 @@ const Div = styled.div`
   color: ${color};
   margin: 10px 0;
   padding: 15px;
-  box-shadow: 0 0 2px .5px indianred;
-  transition: .2s ease-in-out;
+  box-shadow: 0 0 2px 0.5px indianred;
+  transition: 0.2s ease-in-out;
   &:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 5px .5px indianred;
+    box-shadow: 0 0 5px 0.5px indianred;
   }
 `
 
@@ -26,23 +31,23 @@ const TagView = styled.div`
 `
 
 const Button = styled.button`
-    border: 1px solid indianred;
-    box-shadow: 0 0 2px 0 indianred;
-    background: transparent;
-    border-radius: 10%;
+  border: 1px solid indianred;
+  box-shadow: 0 0 2px 0 indianred;
+  background: transparent;
+  border-radius: 10%;
 `
 
 const Preview = styled.div`
-      font-size: 15px;
-      width: auto;
-      font-family: Merriweather, sans-serif;
-      color: indianred;
-    `
+  font-size: 15px;
+  width: auto;
+  font-family: Merriweather, sans-serif;
+  color: indianred;
+`
 
 const Title = styled.h1`
-    font-size: 2em;
-    margin-bottom: 2%;
-    color: ${color};
+  font-size: 2em;
+  margin-bottom: 2%;
+  color: ${color};
 `
 
 const Tags = ({ pageContext, data }) => {
@@ -59,9 +64,14 @@ const Tags = ({ pageContext, data }) => {
           const { title } = node.frontmatter
           return (
             <Div key={slug}>
-              <Title><TagLink to={slug}>{title}</TagLink></Title>
+              <Title>
+                <TagLink to={slug}>{title}</TagLink>
+              </Title>
               <Preview
-                dangerouslySetInnerHTML={{  __html: node.frontmatter.description || node.excerpt }}/>
+                dangerouslySetInnerHTML={{
+                  __html: node.frontmatter.description || node.excerpt,
+                }}
+              />
             </Div>
           )
         })}
@@ -76,17 +86,22 @@ const Tags = ({ pageContext, data }) => {
 Tags.propTypes = {
   pageContext: PropTypes.shape({
     tag: PropTypes.string.isRequired,
-  }), data: PropTypes.shape({
+  }),
+  data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
-      totalCount: PropTypes.number.isRequired, edges: PropTypes.arrayOf(PropTypes.shape({
-        node: PropTypes.shape({
-          frontmatter: PropTypes.shape({
-            title: PropTypes.string.isRequired,
-          }), fields: PropTypes.shape({
-            slug: PropTypes.string.isRequired,
+      totalCount: PropTypes.number.isRequired,
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            frontmatter: PropTypes.shape({
+              title: PropTypes.string.isRequired,
+            }),
+            fields: PropTypes.shape({
+              slug: PropTypes.string.isRequired,
+            }),
           }),
-        }),
-      }).isRequired),
+        }).isRequired
+      ),
     }),
   }),
 }
@@ -94,24 +109,24 @@ Tags.propTypes = {
 export default Tags
 
 export const pageQuery = graphql`
-    query($tag: String) {
-        allMarkdownRemark(
-            limit: 2000
-            sort: { fields: [frontmatter___date], order: DESC }
-            filter: { frontmatter: { tags: { in: [$tag] } } }
-        ) {
-            totalCount
-            edges {
-                node {
-                    fields {
-                        slug
-                    }
-                    frontmatter {
-                        title,
-                        description
-                    }
-                }
-            }
+  query($tag: String) {
+    allMarkdownRemark(
+      limit: 2000
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
+    ) {
+      totalCount
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            description
+          }
         }
+      }
     }
+  }
 `
