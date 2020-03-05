@@ -36,10 +36,6 @@ const Bio = () => {
     &:hover {
       fill: ${color};
     }
-
-    @media only screen and (max-width: 1024px) {
-      fill: ${color};
-    }
   `
 
   const Div = styled.div`
@@ -61,7 +57,7 @@ const Bio = () => {
     color: ${backgroundColor};
 
     @media only screen and (max-width: 1024px) {
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-around;
       align-items: center;
       width: 55vw;
@@ -89,7 +85,7 @@ const Bio = () => {
   `
 
   const Gitlab = wrapIcon(FaGitlab, color)
-  const LinkedIn = wrapIcon(FaLinkedin, "#0077B5")
+  const LinkedIn = wrapIcon(FaLinkedin, color)
   const Github = wrapIcon(FaGithub, color)
   const Dev = wrapIcon(FaDev, color)
 

@@ -25,8 +25,8 @@ const Imager = styled.div`
 `
 
 const ThemeSwitch = styled(Switch)`
-  //height: auto;
-  //width: auto;
+  height: auto;
+  width: auto;
 `
 
 const Mooon = styled(FaFirstOrderAlt)`
@@ -60,8 +60,8 @@ const Header = ({ title, checked, setState, mode }) => {
         offColor="#FDFDFD"
         checked={checked}
         offHandleColor="#1e1e1e"
-        height={35}
-        width={70}
+        height={30}
+        width={63}
         className={"mode_switch"}
         activeBoxShadow="0px 0px 2px 3px indianred"
         aria-label={"switch"}
