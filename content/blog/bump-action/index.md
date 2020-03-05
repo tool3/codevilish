@@ -1,10 +1,8 @@
 ---
-
 title: Bump Action!
 date: "2020-03-04T12:00:00.284Z"
 description: get started with github-actions using this quick, short summary of my experience.
-tags: [ "npm", "node", "javascript", "github", "ci_cd"]
-
+tags: [ "npm", "node", "javascript", "github", "ci-cd" ]
 ---
 I have been meaning to write this post for a while now, and with the github-actions [hackathon](https://githubhackathon.com/#hackathon) coming tomorrow, I thought today is a good chance. oh yeah and this is my first post ! 🚀
 

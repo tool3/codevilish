@@ -1,8 +1,8 @@
 ---
 title: Getting a solid CI/CD with Gitlab CI/CD
 date: "2019-07-06T22:12:03.284Z"
-tags: ["gitlab", "ci_cd"]
 description: Getting started with gitlab ci/cd 🦊🏗
+tags: [ "gitlab", "ci-cd" ]
 ---
 # Building a Gitlab CI/CD pipeline
 Let’s say you have created an npm package and shared it with the world. awesome. 
