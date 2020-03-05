@@ -28,13 +28,14 @@ const Bio = () => {
       }
   `)
 
-  const wrapIcon = (icon, color) => styled(icon)`
+  const wrapIcon = (icon) => styled(icon)`
     width: 20px;
     height: 20px;
     transition: 0.2s ease;
 
     &:hover {
-      fill: ${color};
+      fill: indianred;
+      transform: scale(1.1);
     }
   `
 
@@ -84,10 +85,10 @@ const Bio = () => {
     }
   `
 
-  const Gitlab = wrapIcon(FaGitlab, color)
-  const LinkedIn = wrapIcon(FaLinkedin, color)
-  const Github = wrapIcon(FaGithub, color)
-  const Dev = wrapIcon(FaDev, color)
+  const Gitlab = wrapIcon(FaGitlab)
+  const LinkedIn = wrapIcon(FaLinkedin)
+  const Github = wrapIcon(FaGithub)
+  const Dev = wrapIcon(FaDev)
 
   const { author, social } = data.site.siteMetadata
   const LinkOut = ({ href, children }) => (

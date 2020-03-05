@@ -9,4 +9,5 @@ export const backgroundColor = theme("mode", {
 export const color = theme("mode", {
   light: "#000",
   dark: "#FDFDFD",
+  transition: "all 0.2s ease-in-out"
 })

@@ -7,9 +7,11 @@ import { backgroundColor, color } from "./styles"
 import { FaRegClock } from "react-icons/fa"
 
 export const A = styled.a`
-  &:visited {
     color: lightgray;
-  }
+    
+    &:hover {
+      color: lightgray;
+    }
 `
 
 export const StyledLink = styled(Link)`

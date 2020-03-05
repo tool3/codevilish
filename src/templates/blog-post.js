@@ -66,6 +66,7 @@ const ShareIcon = (icon, color) => styled(icon)`
   fill: ${color};
   cursor: pointer;
   transition: 0.2s ease;
+  
   &:hover {
     fill: indianred;
     transform: scale(1.1);
